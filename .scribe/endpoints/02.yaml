@@ -1,0 +1,369 @@
+name: 'Routes pour utilisateurs'
+description: |-
+
+  Collection des opérations liées aux utilisateurs.
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/users/nearby
+    metadata:
+      groupName: 'Routes pour utilisateurs'
+      groupDescription: |-
+
+        Collection des opérations liées aux utilisateurs.
+      subgroup: ''
+      subgroupDescription: ''
+      title: ListAll.
+      description: 'Les utilisateurs retournés sont fonction du périmètre passé en paramètre.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+      Authorization: 'Bearer ${token}'
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters:
+      distance:
+        name: distance
+        description: 'distance autour de l''utilisateur qui fait la demande. Default is 2000m/2km.'
+        required: false
+        example: 1500
+        type: integer
+        custom: []
+      lat:
+        name: lat
+        description: 'latitude de l''utilisateur qui fait la demande.'
+        required: false
+        example: 3.851248
+        type: number
+        custom: []
+      lon:
+        name: lon
+        description: 'longitude de l''utilisateur qui fait la demande.'
+        required: false
+        example: 11.154879
+        type: number
+        custom: []
+    cleanQueryParameters:
+      distance: 1500
+      lat: 3.851248
+      lon: 11.154879
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":[{"distance":null,"email":"rippin.elise@example.org","first_name":"Alex Crona","id":55,"latitude":3.810586,"longitude":11.987799,"last_name":"Eleanora Douglas","phone":"+18574616524","points":71029,"picture":true,"rule":[]},{"distance":null,"email":"gayle.carroll@example.net","first_name":"Jolie Wilderman","id":56,"latitude":3.293194,"longitude":11.206936,"last_name":"Yessenia Hodkiewicz","phone":"+19043066030","points":15843,"picture":true,"rule":[]}]}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/users/create
+    metadata:
+      groupName: 'Routes pour utilisateurs'
+      groupDescription: |-
+
+        Collection des opérations liées aux utilisateurs.
+      subgroup: ''
+      subgroupDescription: ''
+      title: Create.
+      description: 'Enregistrement des informations liées au nouvel utilisateur'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      first_name:
+        name: first_name
+        description: 'prénom de l''utilisateur.'
+        required: true
+        example: John
+        type: string
+        custom: []
+      last_name:
+        name: last_name
+        description: 'nom de l''utilisateur.'
+        required: true
+        example: Doe
+        type: string
+        custom: []
+      email:
+        name: email
+        description: 'adresse e-mail de l''utilisateur.'
+        required: false
+        example: johndoe@example.com
+        type: string
+        custom: []
+      phone:
+        name: phone
+        description: 'numéro de téléphone de l''utilisateur.'
+        required: true
+        example: 698586208.0
+        type: number
+        custom: []
+      latitude:
+        name: latitude
+        description: 'latitude de l''utilisateur.'
+        required: false
+        example: 3.86223
+        type: number
+        custom: []
+      longitude:
+        name: longitude
+        description: 'longitude de latitude de l''utilisateur.'
+        required: false
+        example: 11.5297795
+        type: number
+        custom: []
+      ip_address:
+        name: ip_address
+        description: 'adresse ip de l''utilisateur.'
+        required: true
+        example: 152.72.160.127
+        type: string
+        custom: []
+      password:
+        name: password
+        description: ''
+        required: false
+        example: 'k4On]wf'
+        type: string
+        custom: []
+      points:
+        name: points
+        description: 'Must be at least 0.'
+        required: false
+        example: 58
+        type: number
+        custom: []
+    cleanBodyParameters:
+      first_name: John
+      last_name: Doe
+      email: johndoe@example.com
+      phone: 698586208.0
+      latitude: 3.86223
+      longitude: 11.5297795
+      ip_address: 152.72.160.127
+      password: 'k4On]wf'
+      points: 58
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/users/{id}/show'
+    metadata:
+      groupName: 'Routes pour utilisateurs'
+      groupDescription: |-
+
+        Collection des opérations liées aux utilisateurs.
+      subgroup: ''
+      subgroupDescription: ''
+      title: Show.
+      description: 'Cherche un utilisateur par son identifiant et retourne ses informations.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+      Authorization: 'Bearer ${token}'
+    urlParameters:
+      id:
+        name: id
+        description: 'Identifiant de la ressource demandée.'
+        required: false
+        example: 1.0
+        type: number
+        custom: []
+    cleanUrlParameters:
+      id: 1.0
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"error":"Wrong number of segments"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '59'
+          vary: Origin
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/users/{id}/update'
+    metadata:
+      groupName: 'Routes pour utilisateurs'
+      groupDescription: |-
+
+        Collection des opérations liées aux utilisateurs.
+      subgroup: ''
+      subgroupDescription: ''
+      title: Update.
+      description: 'Met à jour les informations en rapport avec un utilisateur en Base de données.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the user.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      first_name:
+        name: first_name
+        description: 'prénom de l''utilisateur.'
+        required: true
+        example: John
+        type: string
+        custom: []
+      last_name:
+        name: last_name
+        description: 'nom de l''utilisateur.'
+        required: true
+        example: Doe
+        type: string
+        custom: []
+      email:
+        name: email
+        description: 'adresse e-mail de l''utilisateur.'
+        required: false
+        example: johndoe@example.com
+        type: string
+        custom: []
+      phone:
+        name: phone
+        description: 'numéro de téléphone de l''utilisateur.'
+        required: true
+        example: 693624491.0
+        type: number
+        custom: []
+      latitude:
+        name: latitude
+        description: 'latitude de l''utilisateur.'
+        required: false
+        example: 3.86223
+        type: number
+        custom: []
+      longitude:
+        name: longitude
+        description: 'longitude de l''utilisateur.'
+        required: false
+        example: 11.5297795
+        type: number
+        custom: []
+      points:
+        name: points
+        description: 'Must be at least 0.'
+        required: false
+        example: 42
+        type: number
+        custom: []
+      ip_address:
+        name: ip_address
+        description: 'adresse ip de l''utilisateur.'
+        required: true
+        example: 152.72.160.127
+        type: string
+        custom: []
+    cleanBodyParameters:
+      first_name: John
+      last_name: Doe
+      email: johndoe@example.com
+      phone: 693624491.0
+      latitude: 3.86223
+      longitude: 11.5297795
+      points: 42
+      ip_address: 152.72.160.127
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/users/{id}/destroy'
+    metadata:
+      groupName: 'Routes pour utilisateurs'
+      groupDescription: |-
+
+        Collection des opérations liées aux utilisateurs.
+      subgroup: ''
+      subgroupDescription: ''
+      title: Delete.
+      description: 'Supprime de la base de données la ressource demandée.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+      Authorization: 'Bearer ${token}'
+    urlParameters:
+      id:
+        name: id
+        description: 'Identifiant de la ressource demandée.'
+        required: false
+        example: 1.0
+        type: number
+        custom: []
+    cleanUrlParameters:
+      id: 1.0
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

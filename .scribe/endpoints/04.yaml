@@ -1,0 +1,62 @@
+name: 'Routes pour les Alertes'
+description: |-
+
+  Collection des opérations liées à l'émissions des aletes clients.
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/alert/create
+    metadata:
+      groupName: 'Routes pour les Alertes'
+      groupDescription: |-
+
+        Collection des opérations liées à l'émissions des aletes clients.
+      subgroup: ''
+      subgroupDescription: ''
+      title: Create.
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+      Authorization: 'Bearer ${token}'
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      content:
+        name: content
+        description: 'Content of user''s alert.'
+        required: false
+        example: 'There is some trouble here, Help'
+        type: string
+        custom: []
+      type:
+        name: type
+        description: 'Content type of user''s alert.'
+        required: false
+        example: Warning
+        type: string
+        custom: []
+      displacement_id:
+        name: displacement_id
+        description: 'Parent ID trip related to the alert.'
+        required: false
+        example: 1
+        type: integer
+        custom: []
+    cleanBodyParameters:
+      content: 'There is some trouble here, Help'
+      type: Warning
+      displacement_id: 1
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

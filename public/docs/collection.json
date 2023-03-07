@@ -1,0 +1,736 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "http:\/\/localhost:8000"
+        }
+    ],
+    "info": {
+        "name": "Taco",
+        "_postman_id": "546f09ff-2829-483c-9a94-7ccdf6b5ac92",
+        "description": "Complete documentation for Taco API server.",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Endpoints",
+            "description": "",
+            "item": [
+                {
+                    "name": "GET api\/user",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/user",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/user"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Route pour les avis",
+            "description": "\nCollections des op\u00e9rations sur les avis \u00e9mis par les diff\u00e9rents clients.",
+            "item": [
+                {
+                    "name": "ListAll.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/notice\/list",
+                            "query": [
+                                {
+                                    "key": "page",
+                                    "value": "1",
+                                    "description": "num\u00e9ro correspondant \u00e0 la page \u00e0 lire.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "quantity",
+                                    "value": "10",
+                                    "description": "nombre d'\u00e9l\u00e9ments \u00e0 lire par page.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/notice\/list?page=1&quantity=10"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer ${token}"
+                            }
+                        ],
+                        "body": null,
+                        "description": "R\u00e9cup\u00e8re la liste des avis de l'utilisateur qui \u00e9met la requette\nselon une page et un nombre qu'il peut d\u00e9finir."
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "57"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"error\":\"Wrong number of segments\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Create.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/notice\/create",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/notice\/create"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer ${token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"content\":\"explicabo\",\"note\":4,\"sender_id\":1,\"receiver_id\":2}"
+                        },
+                        "description": "Permet \u00e0 un utilisateur d'enregistrer un nouvel avis.'"
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Routes pour l'authentification",
+            "description": "\nCollection des op\u00e9rations d'authentification des diff\u00e9rents utilisateurs.",
+            "item": [
+                {
+                    "name": "Login.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/auth\/login",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/auth\/login"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"phone\":\"698586208\"}"
+                        },
+                        "description": "Assure la connexion d'un utilisateur au syst\u00e8me",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Log out.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/auth\/logout",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/auth\/logout"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer ${token}"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Assure la d\u00e9connexion d'un utilisateur au syst\u00e8me"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Refresh token.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/auth\/refresh",
+                            "query": [
+                                {
+                                    "key": "token",
+                                    "value": "esaihegfvauijona%2CedihYZTUVdhbci...",
+                                    "description": "access token of the authenticated user.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/auth\/refresh?token=esaihegfvauijona%2CedihYZTUVdhbci..."
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Fournit aux utilisateur un nouveau jeton d'acc\u00e8s apr\u00e8s expiration du pr\u00e9c\u00e9dent",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Routes pour les Alertes",
+            "description": "\nCollection des op\u00e9rations li\u00e9es \u00e0 l'\u00e9missions des aletes clients.",
+            "item": [
+                {
+                    "name": "Create.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/alert\/create",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/alert\/create"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer ${token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"content\":\"There is some trouble here, Help\",\"type\":\"Warning\",\"displacement_id\":1}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Routes pour les d\u00e9placements",
+            "description": "\nOp\u00e9rations li\u00e9s aux d\u00e9placements.",
+            "item": [
+                {
+                    "name": "ListAll.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/trip\/list",
+                            "query": [
+                                {
+                                    "key": "page",
+                                    "value": "1",
+                                    "description": "num\u00e9ro correspondant \u00e0 la page \u00e0 lire.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "quantity",
+                                    "value": "10",
+                                    "description": "nombre d'\u00e9l\u00e9ments \u00e0 lire par page.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/trip\/list?page=1&quantity=10"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer ${token}"
+                            }
+                        ],
+                        "body": null,
+                        "description": "R\u00e9cup\u00e8re la liste des d\u00e9placement fait par l'utilisateur qui \u00e9met la requette\nselon une page et un nombre qu'il peut d\u00e9finir."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":[{\"id\":1,\"to\":\"Mvog ada\",\"to_lat\":3.86,\"to_lon\":11.46,\"from\":\"Cit\\u00e9 U\",\"from_lat\":3.57,\"from_lon\":11.25,\"distance\":3575,\"price\":5500,\"status\":\"broadcasting\",\"type\":\"depot\",\"created_at\":\"2023-02-08T12:24:49.000000Z\",\"client\":{\"id\":16,\"first_name\":\"Roma Shields Jr.\",\"last_name\":\"Gabriel Rowe\"}},{\"id\":1,\"to\":\"Mvog ada\",\"to_lat\":3.86,\"to_lon\":11.46,\"from\":\"Cit\\u00e9 U\",\"from_lat\":3.57,\"from_lon\":11.25,\"distance\":3575,\"price\":5500,\"status\":\"broadcasting\",\"type\":\"depot\",\"created_at\":\"2023-02-08T12:24:49.000000Z\",\"client\":{\"id\":16,\"first_name\":\"Roma Shields Jr.\",\"last_name\":\"Gabriel Rowe\"}}]}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Create.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/trip\/create",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/trip\/create"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"to\":\"Mvog Ada\",\"to_lat\":3,\"to_lon\":11,\"from\":\"Cit\u00e9 U\",\"from_lat\":3,\"from_lon\":11,\"distance\":8,\"price\":2500,\"status\":\"pending\",\"type\":\"libero\",\"car_id\":73.706172087,\"user_id\":1}"
+                        },
+                        "description": "Ne sera plus utilis\u00e9e en raison d'une migration technique.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/trip\/:id\/delete",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/trip\/:id\/delete",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "Identifiant de la ressource demand\u00e9e."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer ${token}"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Supprime de la base de donn\u00e9es la ressource demand\u00e9e."
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Routes pour les voitures",
+            "description": "\nCollection des op\u00e9rations li\u00e9s aux voitures.",
+            "item": [
+                {
+                    "name": "List.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/cars\/owner",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/cars\/owner"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer ${token}"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Renvoi la\/les voiture(s) d'un utilisateur en particulier"
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "58"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"error\":\"Wrong number of segments\"}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Routes pour utilisateurs",
+            "description": "\nCollection des op\u00e9rations li\u00e9es aux utilisateurs.",
+            "item": [
+                {
+                    "name": "ListAll.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/users\/nearby",
+                            "query": [
+                                {
+                                    "key": "distance",
+                                    "value": "1500",
+                                    "description": "distance autour de l'utilisateur qui fait la demande. Default is 2000m\/2km.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "lat",
+                                    "value": "3.851248",
+                                    "description": "latitude de l'utilisateur qui fait la demande.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "lon",
+                                    "value": "11.154879",
+                                    "description": "longitude de l'utilisateur qui fait la demande.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/users\/nearby?distance=1500&lat=3.851248&lon=11.154879"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer ${token}"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Les utilisateurs retourn\u00e9s sont fonction du p\u00e9rim\u00e8tre pass\u00e9 en param\u00e8tre."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":[{\"distance\":null,\"email\":\"rippin.elise@example.org\",\"first_name\":\"Alex Crona\",\"id\":55,\"latitude\":3.810586,\"longitude\":11.987799,\"last_name\":\"Eleanora Douglas\",\"phone\":\"+18574616524\",\"points\":71029,\"picture\":true,\"rule\":[]},{\"distance\":null,\"email\":\"gayle.carroll@example.net\",\"first_name\":\"Jolie Wilderman\",\"id\":56,\"latitude\":3.293194,\"longitude\":11.206936,\"last_name\":\"Yessenia Hodkiewicz\",\"phone\":\"+19043066030\",\"points\":15843,\"picture\":true,\"rule\":[]}]}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Create.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/users\/create",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/users\/create"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"first_name\":\"John\",\"last_name\":\"Doe\",\"email\":\"johndoe@example.com\",\"phone\":698586208,\"latitude\":3.86223,\"longitude\":11.5297795,\"ip_address\":\"152.72.160.127\",\"password\":\"k4On]wf\",\"points\":58}"
+                        },
+                        "description": "Enregistrement des informations li\u00e9es au nouvel utilisateur"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Show.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/users\/:id\/show",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/users\/:id\/show",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "Identifiant de la ressource demand\u00e9e."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer ${token}"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Cherche un utilisateur par son identifiant et retourne ses informations."
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "59"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"error\":\"Wrong number of segments\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Update.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/users\/:id\/update",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/users\/:id\/update",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the user."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"first_name\":\"John\",\"last_name\":\"Doe\",\"email\":\"johndoe@example.com\",\"phone\":693624491,\"latitude\":3.86223,\"longitude\":11.5297795,\"points\":42,\"ip_address\":\"152.72.160.127\"}"
+                        },
+                        "description": "Met \u00e0 jour les informations en rapport avec un utilisateur en Base de donn\u00e9es."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/users\/:id\/destroy",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/users\/:id\/destroy",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "Identifiant de la ressource demand\u00e9e."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer ${token}"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Supprime de la base de donn\u00e9es la ressource demand\u00e9e."
+                    },
+                    "response": []
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "noauth"
+    }
+}

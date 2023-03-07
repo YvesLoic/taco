@@ -1,0 +1,1084 @@
+openapi: 3.0.3
+info:
+  title: Taco
+  description: 'Complete documentation for Taco API server.'
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost:8000'
+paths:
+  /api/user:
+    get:
+      summary: ''
+      operationId: getApiUser
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+  /api/notice/list:
+    get:
+      summary: ListAll.
+      operationId: listAll
+      description: "Récupère la liste des avis de l'utilisateur qui émet la requette\nselon une page et un nombre qu'il peut définir."
+      parameters:
+        -
+          in: query
+          name: page
+          description: 'numéro correspondant à la page à lire.'
+          example: 1
+          required: false
+          schema:
+            type: integer
+            description: 'numéro correspondant à la page à lire.'
+            example: 1
+        -
+          in: query
+          name: quantity
+          description: 'nombre d''éléments à lire par page.'
+          example: 10
+          required: false
+          schema:
+            type: integer
+            description: 'nombre d''éléments à lire par page.'
+            example: 10
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer ${token}'
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: 'Wrong number of segments'
+                properties:
+                  error:
+                    type: string
+                    example: 'Wrong number of segments'
+      tags:
+        - 'Route pour les avis'
+  /api/notice/create:
+    post:
+      summary: Create.
+      operationId: create
+      description: 'Permet à un utilisateur d''enregistrer un nouvel avis.'''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer ${token}'
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - 'Route pour les avis'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                content:
+                  type: string
+                  description: 'contenu de l''avis.'
+                  example: explicabo
+                note:
+                  type: integer
+                  description: 'note de l''avis.'
+                  example: 4
+                sender_id:
+                  type: integer
+                  description: 'utilisateur qui émet l''avis.'
+                  example: 1
+                receiver_id:
+                  type: integer
+                  description: 'utilisateur concerné par l''avis.'
+                  example: 2
+  /api/auth/login:
+    post:
+      summary: Login.
+      operationId: login
+      description: 'Assure la connexion d''un utilisateur au système'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - 'Routes pour l''authentification'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                phone:
+                  type: numeric
+                  description: 'numéro de téléphone de l''utilisateur.'
+                  example: '698586208'
+              required:
+                - phone
+      security: []
+  /api/auth/logout:
+    post:
+      summary: 'Log out.'
+      operationId: logOut
+      description: 'Assure la déconnexion d''un utilisateur au système'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer ${token}'
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - 'Routes pour l''authentification'
+  /api/auth/refresh:
+    post:
+      summary: 'Refresh token.'
+      operationId: refreshToken
+      description: 'Fournit aux utilisateur un nouveau jeton d''accès après expiration du précédent'
+      parameters:
+        -
+          in: query
+          name: token
+          description: 'access token of the authenticated user.'
+          example: 'esaihegfvauijona,edihYZTUVdhbci...'
+          required: false
+          schema:
+            type: string
+            description: 'access token of the authenticated user.'
+            example: 'esaihegfvauijona,edihYZTUVdhbci...'
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - 'Routes pour l''authentification'
+      security: []
+  /api/alert/create:
+    post:
+      summary: Create.
+      operationId: create
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer ${token}'
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - 'Routes pour les Alertes'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                content:
+                  type: string
+                  description: 'Content of user''s alert.'
+                  example: 'There is some trouble here, Help'
+                type:
+                  type: string
+                  description: 'Content type of user''s alert.'
+                  example: Warning
+                displacement_id:
+                  type: integer
+                  description: 'Parent ID trip related to the alert.'
+                  example: 1
+  /api/trip/list:
+    get:
+      summary: ListAll.
+      operationId: listAll
+      description: "Récupère la liste des déplacement fait par l'utilisateur qui émet la requette\nselon une page et un nombre qu'il peut définir."
+      parameters:
+        -
+          in: query
+          name: page
+          description: 'numéro correspondant à la page à lire.'
+          example: 1
+          required: false
+          schema:
+            type: integer
+            description: 'numéro correspondant à la page à lire.'
+            example: 1
+        -
+          in: query
+          name: quantity
+          description: 'nombre d''éléments à lire par page.'
+          example: 10
+          required: false
+          schema:
+            type: integer
+            description: 'nombre d''éléments à lire par page.'
+            example: 10
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer ${token}'
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 1
+                      to: 'Mvog ada'
+                      to_lat: 3.86
+                      to_lon: 11.46
+                      from: 'Cité U'
+                      from_lat: 3.57
+                      from_lon: 11.25
+                      distance: 3575
+                      price: 5500
+                      status: broadcasting
+                      type: depot
+                      created_at: '2023-02-08T12:24:49.000000Z'
+                      client:
+                        id: 16
+                        first_name: 'Roma Shields Jr.'
+                        last_name: 'Gabriel Rowe'
+                    -
+                      id: 1
+                      to: 'Mvog ada'
+                      to_lat: 3.86
+                      to_lon: 11.46
+                      from: 'Cité U'
+                      from_lat: 3.57
+                      from_lon: 11.25
+                      distance: 3575
+                      price: 5500
+                      status: broadcasting
+                      type: depot
+                      created_at: '2023-02-08T12:24:49.000000Z'
+                      client:
+                        id: 16
+                        first_name: 'Roma Shields Jr.'
+                        last_name: 'Gabriel Rowe'
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        to: 'Mvog ada'
+                        to_lat: 3.86
+                        to_lon: 11.46
+                        from: 'Cité U'
+                        from_lat: 3.57
+                        from_lon: 11.25
+                        distance: 3575
+                        price: 5500
+                        status: broadcasting
+                        type: depot
+                        created_at: '2023-02-08T12:24:49.000000Z'
+                        client:
+                          id: 16
+                          first_name: 'Roma Shields Jr.'
+                          last_name: 'Gabriel Rowe'
+                      -
+                        id: 1
+                        to: 'Mvog ada'
+                        to_lat: 3.86
+                        to_lon: 11.46
+                        from: 'Cité U'
+                        from_lat: 3.57
+                        from_lon: 11.25
+                        distance: 3575
+                        price: 5500
+                        status: broadcasting
+                        type: depot
+                        created_at: '2023-02-08T12:24:49.000000Z'
+                        client:
+                          id: 16
+                          first_name: 'Roma Shields Jr.'
+                          last_name: 'Gabriel Rowe'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                        to:
+                          type: string
+                          example: 'Mvog ada'
+                        to_lat:
+                          type: number
+                          example: 3.86
+                        to_lon:
+                          type: number
+                          example: 11.46
+                        from:
+                          type: string
+                          example: 'Cité U'
+                        from_lat:
+                          type: number
+                          example: 3.57
+                        from_lon:
+                          type: number
+                          example: 11.25
+                        distance:
+                          type: integer
+                          example: 3575
+                        price:
+                          type: integer
+                          example: 5500
+                        status:
+                          type: string
+                          example: broadcasting
+                        type:
+                          type: string
+                          example: depot
+                        created_at:
+                          type: string
+                          example: '2023-02-08T12:24:49.000000Z'
+                        client:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                              example: 16
+                            first_name:
+                              type: string
+                              example: 'Roma Shields Jr.'
+                            last_name:
+                              type: string
+                              example: 'Gabriel Rowe'
+      tags:
+        - 'Routes pour les déplacements'
+  /api/trip/create:
+    post:
+      summary: Create.
+      operationId: create
+      description: 'Ne sera plus utilisée en raison d''une migration technique.'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - 'Routes pour les déplacements'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                to:
+                  type: string
+                  description: 'addresse de l''user lors de la demande.'
+                  example: 'Mvog Ada'
+                to_lat:
+                  type: number
+                  description: 'latitude de l''user lors de la demande.'
+                  example: 3.0
+                to_lon:
+                  type: number
+                  description: 'longitude de l''user lors de la demande.'
+                  example: 11.0
+                from:
+                  type: string
+                  description: 'destination de l''user lors de la demande.'
+                  example: 'Cité U'
+                from_lat:
+                  type: number
+                  description: 'latitude de destination de l''user lors de la demande.'
+                  example: 3.0
+                from_lon:
+                  type: number
+                  description: 'longitude de destination l''user lors de la demande.'
+                  example: 11.0
+                distance:
+                  type: number
+                  description: 'distance totale du trajet.'
+                  example: 8.0
+                price:
+                  type: integer
+                  description: 'prix total du trajet.'
+                  example: 2500
+                status:
+                  type: string
+                  description: 'statut du trajet.'
+                  example: pending
+                type:
+                  type: string
+                  description: 'Must be one of <code>depot</code>, <code>course</code>, or <code>voyage</code>.'
+                  example: libero
+                car_id:
+                  type: number
+                  description: ''
+                  example: 73.706172087
+                user_id:
+                  type: integer
+                  description: 'client concerné par le trajet.'
+                  example: 1
+      security: []
+  '/api/trip/{id}/delete':
+    delete:
+      summary: Delete.
+      operationId: delete
+      description: 'Supprime de la base de données la ressource demandée.'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer ${token}'
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - 'Routes pour les déplacements'
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'Optional parameter. Identifiant de la ressource demandée.'
+        required: true
+        schema:
+          type: number
+        examples:
+          omitted:
+            summary: 'When the value is omitted'
+            value: ''
+          present:
+            summary: 'When the value is present'
+            value: 1.0
+  /api/cars/owner:
+    get:
+      summary: List.
+      operationId: list
+      description: 'Renvoi la/les voiture(s) d''un utilisateur en particulier'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer ${token}'
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: 'Wrong number of segments'
+                properties:
+                  error:
+                    type: string
+                    example: 'Wrong number of segments'
+      tags:
+        - 'Routes pour les voitures'
+  /api/users/nearby:
+    get:
+      summary: ListAll.
+      operationId: listAll
+      description: 'Les utilisateurs retournés sont fonction du périmètre passé en paramètre.'
+      parameters:
+        -
+          in: query
+          name: distance
+          description: 'distance autour de l''utilisateur qui fait la demande. Default is 2000m/2km.'
+          example: 1500
+          required: false
+          schema:
+            type: integer
+            description: 'distance autour de l''utilisateur qui fait la demande. Default is 2000m/2km.'
+            example: 1500
+        -
+          in: query
+          name: lat
+          description: 'latitude de l''utilisateur qui fait la demande.'
+          example: 3.851248
+          required: false
+          schema:
+            type: number
+            description: 'latitude de l''utilisateur qui fait la demande.'
+            example: 3.851248
+        -
+          in: query
+          name: lon
+          description: 'longitude de l''utilisateur qui fait la demande.'
+          example: 11.154879
+          required: false
+          schema:
+            type: number
+            description: 'longitude de l''utilisateur qui fait la demande.'
+            example: 11.154879
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer ${token}'
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      distance: null
+                      email: rippin.elise@example.org
+                      first_name: 'Alex Crona'
+                      id: 55
+                      latitude: 3.810586
+                      longitude: 11.987799
+                      last_name: 'Eleanora Douglas'
+                      phone: '+18574616524'
+                      points: 71029
+                      picture: true
+                      rule: []
+                    -
+                      distance: null
+                      email: gayle.carroll@example.net
+                      first_name: 'Jolie Wilderman'
+                      id: 56
+                      latitude: 3.293194
+                      longitude: 11.206936
+                      last_name: 'Yessenia Hodkiewicz'
+                      phone: '+19043066030'
+                      points: 15843
+                      picture: true
+                      rule: []
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        distance: null
+                        email: rippin.elise@example.org
+                        first_name: 'Alex Crona'
+                        id: 55
+                        latitude: 3.810586
+                        longitude: 11.987799
+                        last_name: 'Eleanora Douglas'
+                        phone: '+18574616524'
+                        points: 71029
+                        picture: true
+                        rule: []
+                      -
+                        distance: null
+                        email: gayle.carroll@example.net
+                        first_name: 'Jolie Wilderman'
+                        id: 56
+                        latitude: 3.293194
+                        longitude: 11.206936
+                        last_name: 'Yessenia Hodkiewicz'
+                        phone: '+19043066030'
+                        points: 15843
+                        picture: true
+                        rule: []
+                    items:
+                      type: object
+                      properties:
+                        distance:
+                          type: string
+                          example: null
+                        email:
+                          type: string
+                          example: rippin.elise@example.org
+                        first_name:
+                          type: string
+                          example: 'Alex Crona'
+                        id:
+                          type: integer
+                          example: 55
+                        latitude:
+                          type: number
+                          example: 3.810586
+                        longitude:
+                          type: number
+                          example: 11.987799
+                        last_name:
+                          type: string
+                          example: 'Eleanora Douglas'
+                        phone:
+                          type: string
+                          example: '+18574616524'
+                        points:
+                          type: integer
+                          example: 71029
+                        picture:
+                          type: boolean
+                          example: true
+                        rule:
+                          type: array
+                          example: []
+      tags:
+        - 'Routes pour utilisateurs'
+  /api/users/create:
+    post:
+      summary: Create.
+      operationId: create
+      description: 'Enregistrement des informations liées au nouvel utilisateur'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - 'Routes pour utilisateurs'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                first_name:
+                  type: string
+                  description: 'prénom de l''utilisateur.'
+                  example: John
+                last_name:
+                  type: string
+                  description: 'nom de l''utilisateur.'
+                  example: Doe
+                email:
+                  type: string
+                  description: 'adresse e-mail de l''utilisateur.'
+                  example: johndoe@example.com
+                phone:
+                  type: number
+                  description: 'numéro de téléphone de l''utilisateur.'
+                  example: 698586208.0
+                latitude:
+                  type: number
+                  description: 'latitude de l''utilisateur.'
+                  example: 3.86223
+                longitude:
+                  type: number
+                  description: 'longitude de latitude de l''utilisateur.'
+                  example: 11.5297795
+                ip_address:
+                  type: string
+                  description: 'adresse ip de l''utilisateur.'
+                  example: 152.72.160.127
+                password:
+                  type: string
+                  description: ''
+                  example: 'k4On]wf'
+                points:
+                  type: number
+                  description: 'Must be at least 0.'
+                  example: 58
+              required:
+                - first_name
+                - last_name
+                - phone
+                - ip_address
+  '/api/users/{id}/show':
+    get:
+      summary: Show.
+      operationId: show
+      description: 'Cherche un utilisateur par son identifiant et retourne ses informations.'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer ${token}'
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: 'Wrong number of segments'
+                properties:
+                  error:
+                    type: string
+                    example: 'Wrong number of segments'
+      tags:
+        - 'Routes pour utilisateurs'
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'Optional parameter. Identifiant de la ressource demandée.'
+        required: true
+        schema:
+          type: number
+        examples:
+          omitted:
+            summary: 'When the value is omitted'
+            value: ''
+          present:
+            summary: 'When the value is present'
+            value: 1.0
+  '/api/users/{id}/update':
+    put:
+      summary: Update.
+      operationId: update
+      description: 'Met à jour les informations en rapport avec un utilisateur en Base de données.'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - 'Routes pour utilisateurs'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                first_name:
+                  type: string
+                  description: 'prénom de l''utilisateur.'
+                  example: John
+                last_name:
+                  type: string
+                  description: 'nom de l''utilisateur.'
+                  example: Doe
+                email:
+                  type: string
+                  description: 'adresse e-mail de l''utilisateur.'
+                  example: johndoe@example.com
+                phone:
+                  type: number
+                  description: 'numéro de téléphone de l''utilisateur.'
+                  example: 693624491.0
+                latitude:
+                  type: number
+                  description: 'latitude de l''utilisateur.'
+                  example: 3.86223
+                longitude:
+                  type: number
+                  description: 'longitude de l''utilisateur.'
+                  example: 11.5297795
+                points:
+                  type: number
+                  description: 'Must be at least 0.'
+                  example: 42
+                ip_address:
+                  type: string
+                  description: 'adresse ip de l''utilisateur.'
+                  example: 152.72.160.127
+              required:
+                - first_name
+                - last_name
+                - phone
+                - ip_address
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the user.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/users/{id}/destroy':
+    delete:
+      summary: Delete.
+      operationId: delete
+      description: 'Supprime de la base de données la ressource demandée.'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer ${token}'
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - 'Routes pour utilisateurs'
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'Optional parameter. Identifiant de la ressource demandée.'
+        required: true
+        schema:
+          type: number
+        examples:
+          omitted:
+            summary: 'When the value is omitted'
+            value: ''
+          present:
+            summary: 'When the value is present'
+            value: 1.0
+tags:
+  -
+    name: Endpoints
+    description: ''
+  -
+    name: 'Route pour les avis'
+    description: "\nCollections des opérations sur les avis émis par les différents clients."
+  -
+    name: 'Routes pour l''authentification'
+    description: "\nCollection des opérations d'authentification des différents utilisateurs."
+  -
+    name: 'Routes pour les Alertes'
+    description: "\nCollection des opérations liées à l'émissions des aletes clients."
+  -
+    name: 'Routes pour les déplacements'
+    description: "\nOpérations liés aux déplacements."
+  -
+    name: 'Routes pour les voitures'
+    description: "\nCollection des opérations liés aux voitures."
+  -
+    name: 'Routes pour utilisateurs'
+    description: "\nCollection des opérations liées aux utilisateurs."

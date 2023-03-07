@@ -1,0 +1,73 @@
+/*---------------------------------------------------------------------
+Variable
+-----------------------------------------------------------------------*/
+
+:root {
+  --iq-card-shadow-1:rgba(226, 190, 253,.15);
+  --iq-card-shadow-2:rgba(226, 190, 253,.15);
+  --iq-primary-shadow-1: rgb(255, 51, 0);
+  --iq-primary-shadow-2: rgb(168, 36, 0);
+  --iq-dropdown-shadow:rgba(0, 0, 0,.05);
+  --iq-title-text: rgb(234, 86, 48);
+  --iq-body-text: rgb(210, 101, 76);
+  --iq-body-bg : #fdf3cc;
+  --iq-card-bg: #fff;
+  --iq-dropdown-bg: #fff;
+  --iq-dropdown-border: #fff;
+  --iq-bg-dark-bg: #ff3300;  /* pending  not give dark mode */
+  --iq-bg-light-color: #ff3300; /* pending  not give*/
+  --iq-primary: #ff3300;
+  --iq-primary-light: #ff9d48;
+  --iq-primary-dark: #c22900;
+  --iq-secondary: #FF7A29;
+  --iq-secondary-light: #FFDFCC;
+   --iq-secondary-dark: #CC4D00;
+  --iq-success: #06C270;
+  --iq-success-light: #83FBC7;
+  --iq-success-dark: #036339;
+  --iq-warning: #FAD02E;
+  --iq-warning-light: #FEF4CD;
+  --iq-warning-dark: #957704;
+  --iq-danger: #FF2929;
+  --iq-danger-light: #FFB3B3;
+  --iq-danger-dark: #A30000;
+  --iq-info: #00cfde;
+  --iq-info-light: #99F8FF;
+  --iq-info-dark: rgb(208, 105, 77);
+  --iq-dark: #2E2138;
+  --iq-light: #FDFAFF;
+  --iq-white: #ffffff;
+  --iq-black: #000000;
+  --iq-cyan: #0cd2e3;
+  --iq-icon-color: rgb(66, 37, 31);  /* pending icon and text */
+  --iq-light-primary: hsl(253deg 61% 85%);
+  --iq-light-secondary: #FF7A2940;
+  --iq-light-success: #06C27040;
+  --iq-light-danger: #FF292940;
+  --iq-light-warning: #FAD02E40;
+  --iq-light-info: #00CFDE40;
+  --iq-light-dark: #f0efef;   /* pending  not give*/
+  --iq-cobalt-blue: #3f79f1;
+  --iq-spring-green: #1be1b3;
+  --iq-amber: #f4b72a;
+  --iq-pink: #FF5DCD;
+  --iq-blue-dark: #5a61fd;  /* pending dark mode sidebar */
+  --iq-color-light: #edf3ff;
+  --iq-progress-light: #eef1f7;
+  --iq-light-border: #f2edff;
+  --iq-dark-border: #d7dbda;
+}
+
+/* Dark Variable */
+:root {
+  --iq-dark-title-text: #fff;
+  --iq-dark-body-text: #fff;
+  --iq-dark-body-bg : rgb(255, 51, 0);
+  --iq-dark-card-bg: rgb(255, 51, 0);
+  --iq-dropdown-bg: #fff;
+  --iq-dropdown-border: #fff;
+  --iq-dark-hover-bg: rgb(255, 51, 0);
+  --iq-dark-icon-color: rgb(255, 153, 0);
+  --iq-dark-shadow-1:rgba(24,20,31,.1);
+  --iq-dark-shadow-2:rgba(24,20,31,.15)
+}
