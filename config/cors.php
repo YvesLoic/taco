@@ -19,7 +19,7 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['http://localhost:4200', 'http://192.168.53.92:8000', 'https://taco.cm'],
+    'allowed_origins' => ['http://localhost:4200', 'http://31.220.88.162:80', 'https://taco.cm'],
 
     'allowed_origins_patterns' => [],
 
