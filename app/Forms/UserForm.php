@@ -67,8 +67,6 @@ class UserForm extends Form
                 ],
                 'rules' => [
                     'required',
-                    'min:9',
-                    'max:15',
                     'string',
                     'unique:users',
                 ]

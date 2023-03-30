@@ -280,8 +280,12 @@ class UserController extends Controller
         $u->last_name = $req->input('last_name');
         $u->phone = $req->input('phone');
         $u->email = $req->input('email');
-        if (!empty($req->input('password'))) {
-            $u->password = Hash::make($req->input('password'));
+        if ($req->input('rule') == 'client' || $req->input('rule') == 'driver') {
+            $u->password = Hash::make($req->input('phone'));
+        } else {
+            if (!empty($req->input('password'))) {
+                $u->password = Hash::make($req->input('password'));
+            }
         }
         return $u;
     }

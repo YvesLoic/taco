@@ -51,6 +51,7 @@ class TripWebsocketHandler extends BaseWebsockeHandler
                     $trip->update(['status' => 'pending', 'car_id' => $body['car_id']]);
                     $trip = Displacement::with(['client', 'car.user'])->find($trip->id);
                     $conn->send(json_encode(new DisplacementResource($trip)));
+                    break;
                 }
                 $conn->send(json_encode(['data' => 'No data found with id:' . $body['id']]));
                 break;
@@ -60,6 +61,7 @@ class TripWebsocketHandler extends BaseWebsockeHandler
                     $trip->update(['status' => 'ongoing']);
                     $trip = Displacement::with(['client', 'car.user'])->find($trip->id);
                     $conn->send(json_encode(new DisplacementResource($trip)));
+                    break;
                 }
                 $conn->send(json_encode(['data' => 'No data found with id:' . $body['id']]));
                 break;
@@ -71,6 +73,7 @@ class TripWebsocketHandler extends BaseWebsockeHandler
                     $driver->update(['points' => $driver->points - $trip->price]);
                     $trip = Displacement::with(['client', 'car.user'])->find($trip->id);
                     $conn->send(json_encode(new DisplacementResource($trip)));
+                    break;
                 }
                 $conn->send(json_encode(['data' => 'No data found with id:' . $body['id']]));
                 break;

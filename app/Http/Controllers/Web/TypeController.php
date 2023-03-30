@@ -75,7 +75,7 @@ class TypeController extends Controller
         return redirect()->route('type_index')
             ->with(
                 'success',
-                __('labels.actions.messages.created_content')
+                __('labels.actions.messages.success.created')
             );
     }
 
@@ -150,7 +150,7 @@ class TypeController extends Controller
         return redirect()->route('type_index')
             ->with(
                 'success',
-                __('labels.actions.messages.updated_content')
+                __('labels.actions.messages.success.updated')
             );
     }
 
@@ -175,7 +175,7 @@ class TypeController extends Controller
         return redirect()->route('type_index')
             ->with(
                 'success',
-                __('labels.actions.messages.deleted_content')
+                __('labels.actions.messages.success.deleted')
             );
     }
 
@@ -200,7 +200,7 @@ class TypeController extends Controller
         return redirect()->route('type_index')
             ->with(
                 'success',
-                __('labels.actions.messages.restored_content')
+                __('labels.actions.messages.success.restored')
             );
     }
 

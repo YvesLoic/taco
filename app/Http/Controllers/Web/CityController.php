@@ -72,7 +72,7 @@ class CityController extends Controller
         return redirect()->route('city_index')
             ->with(
                 'success',
-                __('labels.actions.messages.created_content')
+                __('labels.actions.messages.success.created')
             );
     }
 
@@ -147,7 +147,7 @@ class CityController extends Controller
         return redirect()->route('city_index')
             ->with(
                 'success',
-                __('labels.actions.messages.updated_content')
+                __('labels.actions.messages.success.updated')
             );
     }
 
@@ -172,7 +172,7 @@ class CityController extends Controller
         return redirect()->route('city_index')
             ->with(
                 'success',
-                __('labels.actions.messages.deleted_content')
+                __('labels.actions.messages.success.deleted')
             );
     }
 
@@ -197,7 +197,7 @@ class CityController extends Controller
         return redirect()->route('city_index')
             ->with(
                 'success',
-                __('labels.actions.messages.restored_content')
+                __('labels.actions.messages.success.restored')
             );
     }
 

@@ -138,12 +138,12 @@
                             <i class="ri-arrow-right-s-line iq-arrow-right"></i>
                         </a>
                         <ul id="trips-side" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
-                            <li class="{{request()->route()->named('displacement_create')?'active':''}}">
-                                <a href="{{route('displacement_create')}}" class="iq-waves-effect collapsed">
-                                    <i class="ri-add-line"></i>
-                                    <span>{{__('labels.sidebar.displacement_add')}}</span>
-                                </a>
-                            </li>
+{{--                            <li class="{{request()->route()->named('displacement_create')?'active':''}}">--}}
+{{--                                <a href="{{route('displacement_create')}}" class="iq-waves-effect collapsed">--}}
+{{--                                    <i class="ri-add-line"></i>--}}
+{{--                                    <span>{{__('labels.sidebar.displacement_add')}}</span>--}}
+{{--                                </a>--}}
+{{--                            </li>--}}
                             <li class="{{request()->route()->named('displacement_index')?'active':''}}">
                                 <a href="{{route('displacement_index')}}" class="iq-waves-effect collapsed">
                                     <i class="ri-tumblr-line"></i>

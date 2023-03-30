@@ -17,7 +17,7 @@ class CreateCitiesTable extends Migration
             $table->id();
             $table->string('country')->nullable();
             $table->string('city')->nullable();
-            $table->string('country_code')->nullable();
+            $table->string('country_code')->nullable()->default("");
             $table->softDeletes();
             $table->timestamps();
         });
