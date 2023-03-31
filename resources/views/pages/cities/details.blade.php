@@ -95,7 +95,30 @@
                         </div>
                     </div>
                 </div>
+{{--                @if(auth()->user()->roles->pluck('name')[0] == 'super_admin')--}}
+{{--                    <div class="mt-2">--}}
+{{--                        <h6>{{__('labels.user.pages.profile.actions')}}:</h6>--}}
+{{--                        <p>--}}
+{{--                        <form action="{{route('city_delete', ['lang'=>'en', 'id'=>'cityId'])}}"--}}
+{{--                              method="post" id="deleteCity" class="actions">--}}
+{{--                            @csrf--}}
+{{--                            <button class="iq-bg-danger form-control" type="submit"--}}
+{{--                            > {{__('labels.actions.delete')}} </button>--}}
+{{--                        </form>--}}
+{{--                        </p>--}}
+{{--                    </div>--}}
+{{--                @endif--}}
             </div>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    <script type="text/javascript">
+        (function ($) {
+            let city = {{Js::from($city)}};
+            let url = $('#deleteCity')[0].action;
+            $('#deleteCity').attr('action', url.replace('cityId', city.id));
+        })(jQuery);
+    </script>
 @endsection

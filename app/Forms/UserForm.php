@@ -68,6 +68,8 @@ class UserForm extends Form
                 'rules' => [
                     'required',
                     'string',
+                    'min:9',
+                    'max:15',
                     'unique:users',
                 ]
             ]
@@ -101,7 +103,21 @@ class UserForm extends Form
                         ->letters()
                         ->numbers()
                         ->mixedCase()
-                        ->symbols()
+                        ->symbols(),
+                    'confirmed'
+                ]
+            ]
+        )->add(
+            'confirm_password',
+            'password',
+            [
+                'label' => __('labels.user.attr.c_pass'),
+                'attr' => [
+                    'class' => 'form-control',
+                    'placeholder' => __('labels.user.attr.c_pass')
+                ],
+                'rules' => [
+//                    'confirmed'
                 ]
             ]
         )->add(
@@ -182,11 +198,13 @@ class UserForm extends Form
                     'required',
                     'min:9',
                     'max:15',
-                    'numeric',
+                    'string',
                 ]
             ], true);
             empty($this->getModel()->deleted_at) ?: $this->remove('submit');
             $this->remove('password');
+            $this->getData('rule') == 'super_admin' ?: $this->remove('rule');
+            $this->remove('confirm_password');
             $this->getModel()->id != $this->getData('auth') ?: $this->remove('rule');
         } else {
             $url = route('user_store', ['lang' => app()->getLocale()]);

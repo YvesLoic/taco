@@ -252,6 +252,12 @@
                                         <h6>{{__('labels.user.pages.profile.points')}}:</h6>
                                         <p>{{$user->points}}</p>
                                     </div>
+                                    @if(!is_null($user->deleted_at))
+                                        <div class="mt-2">
+                                            <h6>{{__('labels.deleted_at')}}:</h6>
+                                            <p>{{date_format($user->deleted_at, 'Y-mm-d H:i')}}</p>
+                                        </div>
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -274,6 +280,31 @@
                                     <div class="col-5">{{__('labels.user.attr.city')}}:</div>
                                     <div class="col-7">{{$user->city->city}}</div>
                                 </div>
+                                @if(auth()->user()->roles->pluck('name')[0] == 'super_admin')
+                                    <div class="row">
+                                        @if(is_null($user->deleted_at))
+                                            <div class="col-5">{{__('labels.user.pages.profile.actions')}}:</div>
+                                            <div class="col-7">
+                                                <form action="{{route('user_delete', ['lang'=>'en', 'id'=>'userId'])}}"
+                                                      method="post" id="deleteU" class="actions">
+                                                    @csrf
+                                                    <button class="iq-bg-danger form-control" type="submit"
+                                                    > {{__('labels.actions.delete')}} </button>
+                                                </form>
+                                            </div>
+                                        @else
+                                            <div class="col-5">{{__('labels.user.pages.profile.actions')}}:</div>
+                                            <div class="col-7">
+                                                <form action="{{route('user_restore', ['lang'=>'en', 'id'=>'userId'])}}"
+                                                      method="post" id="restoreU" class="actions">
+                                                    @csrf
+                                                    <button class="iq-bg-success form-control" type="submit"
+                                                    > {{__('labels.actions.restore')}} </button>
+                                                </form>
+                                            </div>
+                                        @endif
+                                    </div>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -281,4 +312,15 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    <script type="text/javascript">
+        (function ($) {
+            const user = {{Js::from($user)}};
+            let url = $('.actions')[0].action;
+            $('#deleteU').attr('action', url.replace('userId', user.id));
+            $('#restoreU').attr('action', url.replace('userId', user.id));
+        })(jQuery);
+    </script>
 @endsection

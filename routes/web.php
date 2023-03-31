@@ -44,7 +44,7 @@ Route::middleware(["auth", "role:admin|super_admin"])
             Route::post('store', [UserController::class, 'store'])->name('user_store');
             Route::get('/{id?}/edit', [UserController::class, 'edit'])->name('user_edit');
             Route::put('/{id?}/update', [UserController::class, 'update'])->name('user_update');
-            Route::delete('/{id?}/delete', [UserController::class, 'destroy'])->name('user_delete');
+            Route::post('/{id?}/delete', [UserController::class, 'destroy'])->name('user_delete');
             Route::post('/{id?}/restore', [UserController::class, 'restore'])->name('user_restore');
             Route::get('/profile', [UserController::class, 'profile'])->name('user_profile');
             Route::get('/edit_profile', [UserController::class, 'edit_profile'])->name('user_edit_profile');
@@ -58,7 +58,7 @@ Route::middleware(["auth", "role:admin|super_admin"])
             Route::post('store', [CarController::class, 'store'])->name('car_store');
             Route::get('/{id?}/edit', [CarController::class, 'edit'])->name('car_edit');
             Route::put('/{id?}/update', [CarController::class, 'update'])->name('car_update');
-            Route::delete('/{id?}/delete', [CarController::class, 'destroy'])->name('car_delete');
+            Route::post('/{id?}/delete', [CarController::class, 'destroy'])->name('car_delete');
             Route::delete('/delete_img', [CarController::class, 'removeImage'])->name('car_delete_img');
         });
 
@@ -69,7 +69,7 @@ Route::middleware(["auth", "role:admin|super_admin"])
             Route::post('store', [TypeController::class, 'store'])->name('type_store');
             Route::get('/{id?}/edit', [TypeController::class, 'edit'])->name('type_edit');
             Route::put('/{id?}/update', [TypeController::class, 'update'])->name('type_update');
-            Route::delete('/{id?}/delete', [TypeController::class, 'destroy'])->name('type_delete');
+            Route::post('/{id?}/delete', [TypeController::class, 'destroy'])->name('type_delete');
             Route::post('/{id?}/restore', [TypeController::class, 'restore'])->name('type_restore');
         });
 
@@ -80,7 +80,7 @@ Route::middleware(["auth", "role:admin|super_admin"])
             Route::post('store', [CityController::class, 'store'])->name('city_store');
             Route::get('/{id?}/edit', [CityController::class, 'edit'])->name('city_edit');
             Route::put('/{id?}/update', [CityController::class, 'update'])->name('city_update');
-            Route::delete('/{id?}/delete', [CityController::class, 'destroy'])->name('city_delete');
+            Route::post('/{id?}/delete', [CityController::class, 'destroy'])->name('city_delete');
             Route::post('/{id?}/restore', [CityController::class, 'restore'])->name('city_restore');
         });
 
@@ -91,7 +91,7 @@ Route::middleware(["auth", "role:admin|super_admin"])
             Route::post('store', [DisplacementController::class, 'store'])->name('displacement_store');
             Route::get('/{id?}/edit', [DisplacementController::class, 'edit'])->name('displacement_edit');
             Route::put('/{id?}/update', [DisplacementController::class, 'update'])->name('displacement_update');
-            Route::delete('/{id?}/delete', [DisplacementController::class, 'destroy'])->name('displacement_delete');
+            Route::post('/{id?}/delete', [DisplacementController::class, 'destroy'])->name('displacement_delete');
             Route::post('/{id?}/restore', [DisplacementController::class, 'restore'])->name('displacement_restore');
         });
 

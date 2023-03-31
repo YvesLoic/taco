@@ -105,7 +105,6 @@ class UserController extends Controller
     {
         $id = $request->id;
         $user = User::with(['cars', 'displacements', 'notices'])->find($id);
-        $rank = $user->notices->average('note');
         if (empty($user)) {
             $user = User::withTrashed()->find($id);
             if (empty($user)) {
@@ -116,6 +115,7 @@ class UserController extends Controller
                     );
             }
         }
+        $rank = $user->notices->average('note');
         return view('pages.users.details', compact('user', 'rank'));
     }
 
@@ -167,9 +167,9 @@ class UserController extends Controller
             File::delete(public_path('assets/images/users/' . $user->picture));
             $this->uploadUserPicture($request, $user);
         }
-        $user->update();
-        $user->removeRole($user->getRoleNames()->pluck('name')[0]);
+        $user->removeRole($user->roles->pluck('name')[0]);
         $user->assignRole($request->input('rule'));
+        $user->update();
         return redirect()->route('user_index')
             ->with(
                 'success',
@@ -196,13 +196,13 @@ class UserController extends Controller
                     );
             }
             $user->delete();
-            return redirect()->route('product_index')
+            return redirect()->route('user_index')
                 ->with(
                     'success',
                     __('labels.actions.messages.success.deleted')
                 );
         }
-        return redirect()->route('product_index')
+        return redirect()->route('user_index')
             ->with(
                 'error',
                 __('labels.error.403')
@@ -229,13 +229,13 @@ class UserController extends Controller
                     );
             }
             $user->restore();
-            return redirect()->route('product_index')
+            return redirect()->route('user_index')
                 ->with(
                     'success',
                     __('labels.actions.messages.success.restored')
                 );
         }
-        return redirect()->route('product_index')
+        return redirect()->route('user_index')
             ->with(
                 'error',
                 __('labels.error.403')
@@ -280,6 +280,7 @@ class UserController extends Controller
         $u->last_name = $req->input('last_name');
         $u->phone = $req->input('phone');
         $u->email = $req->input('email');
+        $u->city_id = $req->input('city_id');
         if ($req->input('rule') == 'client' || $req->input('rule') == 'driver') {
             $u->password = Hash::make($req->input('phone'));
         } else {
@@ -333,7 +334,7 @@ class UserController extends Controller
                     $this->guard()->login($user);
                     return redirect()->route('home')->with('success', 'Password changed!');
                 }
-                return redirect()->back()->with('error', 'password confirmation nor match!');
+                return redirect()->back()->with('error', 'password confirmation not match!');
             }
             return redirect()->back()->with('error', 'Incorrect user credentials!');
         }

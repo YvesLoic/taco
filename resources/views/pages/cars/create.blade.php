@@ -18,7 +18,7 @@
                         <h4 class="card-title">{{__('labels.car.pages.create.card_title')}}</h4>
                         @if (!empty($car) && !empty($car->deleted_at))
                             <span class="badge bg-warning float-end">
-                                {{__('labels.actions.messages.delete_data')}}
+                                {{__('labels.actions.messages.error.delete_data')}}
                             </span>
                         @endif
                     </div>

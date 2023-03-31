@@ -178,6 +178,19 @@
                                             <h6>{{__('labels.created_at')}}:</h6>
                                             <p>{{date_format($car->created_at, 'M d, Y')}}</p>
                                         </div>
+                                        @if(auth()->user()->roles->pluck('name')[0] == 'super_admin')
+                                            <div class="mt-2">
+                                                <h6>{{__('labels.user.pages.profile.actions')}}:</h6>
+                                                <p>
+                                                <form action="{{route('car_delete', ['lang'=>'en', 'id'=>'carId'])}}"
+                                                      method="post" id="deleteCar" class="actions">
+                                                    @csrf
+                                                    <button class="iq-bg-danger form-control" type="submit"
+                                                    > {{__('labels.actions.delete')}} </button>
+                                                </form>
+                                                </p>
+                                            </div>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -270,4 +283,14 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    <script type="text/javascript">
+        (function ($) {
+            let car = {{Js::from($car)}};
+            let url = $('#deleteCar')[0].action;
+            $('#deleteCar').attr('action', url.replace('carId', car.id));
+        })(jQuery);
+    </script>
 @endsection

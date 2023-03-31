@@ -165,6 +165,7 @@ return [
                 "rank" => "User Rank",
                 "points" => "Points",
                 "more" => "More details",
+                "actions" => "Delete/Restore",
             ],
         ],
     ],
