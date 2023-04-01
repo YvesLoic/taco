@@ -280,7 +280,7 @@
                                     <div class="col-5">{{__('labels.user.attr.city')}}:</div>
                                     <div class="col-7">{{$user->city->city}}</div>
                                 </div>
-                                @if(auth()->user()->roles->pluck('name')[0] == 'super_admin')
+                                @if(auth()->user()->roles->pluck('name')[0] == 'super_admin' && auth()->user()->id!=$user->id)
                                     <div class="row">
                                         @if(is_null($user->deleted_at))
                                             <div class="col-5">{{__('labels.user.pages.profile.actions')}}:</div>
