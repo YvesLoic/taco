@@ -30,14 +30,14 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 WebSocketsRouter::webSocket('create-alert', AlertWebsocketHandler::class);
 WebSocketsRouter::webSocket('displacement', TripWebsocketHandler::class);
 
-Route::middleware(['jwt', 'role:client|driver', 'cors'])
+Route::middleware(['jwt', 'role:client|driver', 'cors', 'position'])
     // ->prefix('{lang}')->where(['lang' => '[a-zA-Z]{2}'])
     // ->middleware('lang')
     ->group(function () {
 
         Route::prefix('auth')->group(function () {
             Route::post('login', [AuthController::class, 'login'])
-                ->withoutMiddleware(['role:client|driver', 'jwt']);
+                ->withoutMiddleware(['role:client|driver', 'jwt', 'position']);
             Route::post('logout', [AuthController::class, 'logout']);
             Route::post('refresh', [AuthController::class, 'refresh'])
                 ->withoutMiddleware(['jwt', 'role:client|driver']);

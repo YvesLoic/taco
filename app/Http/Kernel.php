@@ -69,5 +69,6 @@ class Kernel extends HttpKernel
         'jwt' => \App\Http\Middleware\JwtMiddleware::class,
         'lang' => \App\Http\Middleware\Language::class,
         'cors' => \Fruitcake\Cors\HandleCors::class,
+        'position' => \App\Http\Middleware\UserPosition::class,
     ];
 }
