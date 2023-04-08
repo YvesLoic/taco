@@ -31,8 +31,8 @@ class UserUpdateRequest extends FormRequest
             'last_name' => 'required|string|max:50',
             'email' => 'email|string|max:255',
             'phone' => 'required|string',
-            'latitude' => 'required',
-            'longitude' => 'required',
+            'latitude' => 'required|numeric',
+            'longitude' => 'required|numeric',
             'points' => 'numeric|min:0',
         ];
     }

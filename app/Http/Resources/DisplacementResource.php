@@ -34,6 +34,11 @@ class DisplacementResource extends JsonResource
                 'first_name' => $this->client->first_name,
                 'last_name' => $this->client->last_name,
             ],
+            'driver' => [
+                'id' => is_null($this->car) ? null : $this->car->user->id,
+                'first_name' => is_null($this->car) ? null : $this->car->user->first_name,
+                'last_name' => is_null($this->car) ? null : $this->car->user->last_name,
+            ],
         ];
     }
 }

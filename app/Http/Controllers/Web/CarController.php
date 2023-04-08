@@ -38,7 +38,7 @@ class CarController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $cars = Car::withTrashed()->get();
+            $cars = Car::withTrashed()->with(['user', 'type'])->get();
             return DataTables::of($cars)
                 ->addIndexColumn()
                 ->addColumn('action', function ($car) {

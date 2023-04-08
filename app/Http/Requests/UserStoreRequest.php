@@ -32,10 +32,10 @@ class UserStoreRequest extends FormRequest
             'last_name' => 'required|string|max:50',
             'email' => 'string|email|max:255|unique:users',
             'phone' => 'required|string|unique:users',
-            'latitude' => 'string',
-            'longitude' => 'string',
+            'latitude' => 'numeric',
+            'longitude' => 'numeric',
             'ip_address' => 'string',
-            'password' => 'required|string',
+            'password' => 'string',
             'points' => 'numeric|min:0',
         ];
     }

@@ -106,7 +106,7 @@ class UserController extends Controller
         $id = $request->id;
         $user = User::with(['cars', 'displacements', 'notices'])->find($id);
         if (empty($user)) {
-            $user = User::withTrashed()->find($id);
+            $user = User::withTrashed()->with(['cars','displacements', 'notices'])->find($id);
             if (empty($user)) {
                 return redirect()->route('user_index')
                     ->with(

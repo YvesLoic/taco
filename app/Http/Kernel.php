@@ -17,6 +17,7 @@ class Kernel extends HttpKernel
         \Fruitcake\Cors\HandleCors::class,
         // \App\Http\Middleware\TrustHosts::class,
         \App\Http\Middleware\TrustProxies::class,
+        \App\Http\Middleware\logout::class,
         \App\Http\Middleware\PreventRequestsDuringMaintenance::class,
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \App\Http\Middleware\TrimStrings::class,
@@ -36,6 +37,7 @@ class Kernel extends HttpKernel
             // \Illuminate\Session\Middleware\AuthenticateSession::class,
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
+            \App\Http\Middleware\logout::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
 
@@ -70,5 +72,6 @@ class Kernel extends HttpKernel
         'lang' => \App\Http\Middleware\Language::class,
         'cors' => \Fruitcake\Cors\HandleCors::class,
         'position' => \App\Http\Middleware\UserPosition::class,
+        'logout' => \App\Http\Middleware\logout::class,
     ];
 }

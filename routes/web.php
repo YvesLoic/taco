@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::redirect('/', app()->getLocale().'/login');
 
-Route::middleware(["auth", "role:admin|super_admin"])
+Route::middleware(["auth", "role:admin|super_admin", "logout"])
     ->prefix('{lang}')
     ->where(['lang' => '[a-zA-Z]{2}'])
     ->middleware('lang')

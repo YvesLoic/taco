@@ -115,27 +115,37 @@
 
                         <div class="mt-2">
                             <div class="h6">{{__('labels.user.attr.first_name')}}:
-                                <a href="javascript:void(0);"> {{$trip->car->user->first_name}}</a>
+                                <a href="javascript:void(0);">
+                                    {{is_null($trip->car)?null:$trip->car->user->first_name}}
+                                </a>
                             </div>
                         </div>
                         <div class="mt-2">
                             <div class="h6">{{__('labels.user.attr.last_name')}}:
-                                <a href="javascript:void(0);"> {{$trip->car->user->last_name}}</a>
+                                <a href="javascript:void(0);">
+                                    {{is_null($trip->car)?null:$trip->car->user->last_name}}
+                                </a>
                             </div>
                         </div>
                         <div class="mt-2">
                             <div class="h6">{{__('labels.user.attr.email')}}:
-                                <a href="javascript:void(0);"> {{$trip->car->user->email}}</a>
+                                <a href="javascript:void(0);">
+                                    {{is_null($trip->car)?null:$trip->car->user->email}}
+                                </a>
                             </div>
                         </div>
                         <div class="mt-2">
                             <div class="h6">{{__('labels.user.attr.phone')}}:
-                                <a href="javascript:void(0);">{{$trip->car->user->phone}}</a>
+                                <a href="javascript:void(0);">
+                                    {{is_null($trip->car)?null:$trip->car->user->phone}}
+                                </a>
                             </div>
                         </div>
                         <div class="mt-2">
                             <div class="h6">{{__('labels.user.attr.credit')}}:
-                                <a href="javascript:void(0);">{{$trip->car->user->points}}</a>
+                                <a href="javascript:void(0);">
+                                    {{is_null($trip->car)?null:$trip->car->user->points}}
+                                </a>
                             </div>
                         </div>
                     </div>

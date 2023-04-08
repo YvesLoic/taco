@@ -117,9 +117,15 @@
                                     <div class="user-post-data p-3">
                                         <div class="d-flex flex-wrap">
                                             <div class="media-support-user-img mr-3">
-                                                <img class="rounded-circle img-fluid"
-                                                     src="{{asset('assets/images/cars/'.$car->pictures[rand(0, sizeof($car->pictures)-1)]->src)}}"
-                                                     alt="">
+                                                @if(sizeof($car->pictures) > 0)
+                                                    <img class="rounded-circle img-fluid"
+                                                         src="{{asset('assets/images/cars/'.$car->pictures[rand(0, sizeof($car->pictures)-1)]->src)}}"
+                                                         alt="">
+                                                @else
+                                                    <img class="rounded-circle img-fluid"
+                                                         src="{{asset('assets/images/no_image.jpg')}}"
+                                                         alt="">
+                                                @endif
                                             </div>
                                             <div class="media-support-info mt-2">
                                                 <h5 class="mb-0">
