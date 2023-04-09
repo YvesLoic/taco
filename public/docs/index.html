@@ -139,6 +139,9 @@
                                                     <li class="tocify-item level-2" data-unique="routes-pour-les-voitures-GETapi-cars-owner">
                                 <a href="#routes-pour-les-voitures-GETapi-cars-owner">List.</a>
                             </li>
+                                                                                <li class="tocify-item level-2" data-unique="routes-pour-les-voitures-GETapi-cars-one">
+                                <a href="#routes-pour-les-voitures-GETapi-cars-one">Show.</a>
+                            </li>
                                                                         </ul>
                             </ul>
                     <ul id="tocify-header-routes-pour-utilisateurs" class="tocify-header">
@@ -172,7 +175,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: March 4, 2023</li>
+        <li>Last updated: April 9, 2023</li>
     </ul>
 </div>
 
@@ -372,7 +375,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 57
+x-ratelimit-remaining: 56
 vary: Origin
  </code></pre></details>         <pre>
 
@@ -497,7 +500,7 @@ vary: Origin
     --header "Accept: application/json" \
     --header "Authorization: Bearer ${token}" \
     --data "{
-    \"content\": \"explicabo\",
+    \"content\": \"ratione\",
     \"note\": 4,
     \"sender_id\": 1,
     \"receiver_id\": 2
@@ -517,7 +520,7 @@ const headers = {
 };
 
 let body = {
-    "content": "explicabo",
+    "content": "ratione",
     "note": 4,
     "sender_id": 1,
     "receiver_id": 2
@@ -612,10 +615,10 @@ fetch(url, {
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                name="content"                data-endpoint="POSTapi-notice-create"
-               value="explicabo"
+               value="ratione"
                data-component="body">
     <br>
-<p>contenu de l'avis. Example: <code>explicabo</code></p>
+<p>contenu de l'avis. Example: <code>ratione</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>note</code></b>&nbsp;&nbsp;
@@ -1234,40 +1237,50 @@ fetch(url, {
     &quot;data&quot;: [
         {
             &quot;id&quot;: 1,
-            &quot;to&quot;: &quot;Mvog ada&quot;,
-            &quot;to_lat&quot;: 3.86,
-            &quot;to_lon&quot;: 11.46,
-            &quot;from&quot;: &quot;Cit&eacute; U&quot;,
-            &quot;from_lat&quot;: 3.57,
-            &quot;from_lon&quot;: 11.25,
-            &quot;distance&quot;: 3575,
-            &quot;price&quot;: 5500,
+            &quot;to&quot;: &quot;Maison&quot;,
+            &quot;to_lat&quot;: 3.85,
+            &quot;to_lon&quot;: 11.37,
+            &quot;from&quot;: &quot;Poste Centrale&quot;,
+            &quot;from_lat&quot;: 3.9,
+            &quot;from_lon&quot;: 11.46,
+            &quot;distance&quot;: 45,
+            &quot;price&quot;: 5000,
             &quot;status&quot;: &quot;broadcasting&quot;,
             &quot;type&quot;: &quot;depot&quot;,
-            &quot;created_at&quot;: &quot;2023-02-08T12:24:49.000000Z&quot;,
+            &quot;created_at&quot;: null,
             &quot;client&quot;: {
-                &quot;id&quot;: 16,
-                &quot;first_name&quot;: &quot;Roma Shields Jr.&quot;,
-                &quot;last_name&quot;: &quot;Gabriel Rowe&quot;
+                &quot;id&quot;: 11,
+                &quot;first_name&quot;: &quot;Adah Brakus&quot;,
+                &quot;last_name&quot;: &quot;Filomena Tromp&quot;
+            },
+            &quot;driver&quot;: {
+                &quot;id&quot;: null,
+                &quot;first_name&quot;: null,
+                &quot;last_name&quot;: null
             }
         },
         {
             &quot;id&quot;: 1,
-            &quot;to&quot;: &quot;Mvog ada&quot;,
-            &quot;to_lat&quot;: 3.86,
-            &quot;to_lon&quot;: 11.46,
-            &quot;from&quot;: &quot;Cit&eacute; U&quot;,
-            &quot;from_lat&quot;: 3.57,
-            &quot;from_lon&quot;: 11.25,
-            &quot;distance&quot;: 3575,
-            &quot;price&quot;: 5500,
+            &quot;to&quot;: &quot;Maison&quot;,
+            &quot;to_lat&quot;: 3.85,
+            &quot;to_lon&quot;: 11.37,
+            &quot;from&quot;: &quot;Poste Centrale&quot;,
+            &quot;from_lat&quot;: 3.9,
+            &quot;from_lon&quot;: 11.46,
+            &quot;distance&quot;: 45,
+            &quot;price&quot;: 5000,
             &quot;status&quot;: &quot;broadcasting&quot;,
             &quot;type&quot;: &quot;depot&quot;,
-            &quot;created_at&quot;: &quot;2023-02-08T12:24:49.000000Z&quot;,
+            &quot;created_at&quot;: null,
             &quot;client&quot;: {
-                &quot;id&quot;: 16,
-                &quot;first_name&quot;: &quot;Roma Shields Jr.&quot;,
-                &quot;last_name&quot;: &quot;Gabriel Rowe&quot;
+                &quot;id&quot;: 11,
+                &quot;first_name&quot;: &quot;Adah Brakus&quot;,
+                &quot;last_name&quot;: &quot;Filomena Tromp&quot;
+            },
+            &quot;driver&quot;: {
+                &quot;id&quot;: null,
+                &quot;first_name&quot;: null,
+                &quot;last_name&quot;: null
             }
         }
     ]
@@ -1397,8 +1410,8 @@ fetch(url, {
     \"distance\": 8,
     \"price\": 2500,
     \"status\": \"pending\",
-    \"type\": \"libero\",
-    \"car_id\": 73.706172087,
+    \"type\": \"dolorem\",
+    \"car_id\": 7939.02575,
     \"user_id\": 1
 }"
 </code></pre></div>
@@ -1424,8 +1437,8 @@ let body = {
     "distance": 8,
     "price": 2500,
     "status": "pending",
-    "type": "libero",
-    "car_id": 73.706172087,
+    "type": "dolorem",
+    "car_id": 7939.02575,
     "user_id": 1
 };
 
@@ -1606,10 +1619,10 @@ fetch(url, {
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                name="type"                data-endpoint="POSTapi-trip-create"
-               value="libero"
+               value="dolorem"
                data-component="body">
     <br>
-<p>Must be one of <code>depot</code>, <code>course</code>, or <code>voyage</code>. Example: <code>libero</code></p>
+<p>Must be one of <code>depot</code>, <code>course</code>, or <code>voyage</code>. Example: <code>dolorem</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>car_id</code></b>&nbsp;&nbsp;
@@ -1617,10 +1630,10 @@ fetch(url, {
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                name="car_id"                data-endpoint="POSTapi-trip-create"
-               value="73.706172087"
+               value="7939.02575"
                data-component="body">
     <br>
-<p>Example: <code>73.706172087</code></p>
+<p>Example: <code>7939.02575</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>user_id</code></b>&nbsp;&nbsp;
@@ -1897,6 +1910,150 @@ vary: Origin
             </div>
                         </form>
 
+                    <h2 id="routes-pour-les-voitures-GETapi-cars-one">Show.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Cherche une voiture par son identifiant et retourne ses informations.</p>
+
+<span id="example-requests-GETapi-cars-one">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/api/cars/one" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --header "Authorization: Bearer ${token}"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/cars/one"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer ${token}",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-cars-one">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 57
+vary: Origin
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;error&quot;: &quot;Wrong number of segments&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-cars-one" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-cars-one"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-cars-one" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-cars-one" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-cars-one"></code></pre>
+</span>
+<form id="form-GETapi-cars-one" data-method="GET"
+      data-path="api/cars/one"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-cars-one', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-cars-one"
+                    onclick="tryItOut('GETapi-cars-one');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-cars-one"
+                    onclick="cancelTryOut('GETapi-cars-one');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-cars-one" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/cars/one</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="GETapi-cars-one"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="GETapi-cars-one"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Authorization" class="auth-value"               data-endpoint="GETapi-cars-one"
+               value="Bearer ${token}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer ${token}</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               name="id"                data-endpoint="GETapi-cars-one"
+               value="1"
+               data-component="url">
+    <br>
+<p>Identifiant de la ressource demandée. Example: <code>1</code></p>
+            </div>
+                    </form>
+
                 <h1 id="routes-pour-utilisateurs">Routes pour utilisateurs</h1>
 
     <p>Collection des opérations liées aux utilisateurs.</p>
@@ -1957,29 +2114,41 @@ fetch(url, {
     &quot;data&quot;: [
         {
             &quot;distance&quot;: null,
-            &quot;email&quot;: &quot;rippin.elise@example.org&quot;,
-            &quot;first_name&quot;: &quot;Alex Crona&quot;,
-            &quot;id&quot;: 55,
-            &quot;latitude&quot;: 3.810586,
-            &quot;longitude&quot;: 11.987799,
-            &quot;last_name&quot;: &quot;Eleanora Douglas&quot;,
-            &quot;phone&quot;: &quot;+18574616524&quot;,
-            &quot;points&quot;: 71029,
+            &quot;email&quot;: &quot;neal.bartoletti@example.com&quot;,
+            &quot;first_name&quot;: &quot;Fae Nienow&quot;,
+            &quot;id&quot;: 57,
+            &quot;latitude&quot;: 3.485089,
+            &quot;longitude&quot;: 11.50925,
+            &quot;last_name&quot;: &quot;Alena Romaguera V&quot;,
+            &quot;phone&quot;: &quot;+18433270167&quot;,
+            &quot;points&quot;: 56472,
             &quot;picture&quot;: true,
-            &quot;rule&quot;: []
+            &quot;rule&quot;: [],
+            &quot;city&quot;: {
+                &quot;id&quot;: 2,
+                &quot;country&quot;: &quot;Cameroon&quot;,
+                &quot;city&quot;: &quot;Douala&quot;,
+                &quot;country_code&quot;: &quot;CM&quot;
+            }
         },
         {
             &quot;distance&quot;: null,
-            &quot;email&quot;: &quot;gayle.carroll@example.net&quot;,
-            &quot;first_name&quot;: &quot;Jolie Wilderman&quot;,
-            &quot;id&quot;: 56,
-            &quot;latitude&quot;: 3.293194,
-            &quot;longitude&quot;: 11.206936,
-            &quot;last_name&quot;: &quot;Yessenia Hodkiewicz&quot;,
-            &quot;phone&quot;: &quot;+19043066030&quot;,
-            &quot;points&quot;: 15843,
+            &quot;email&quot;: &quot;hill.stuart@example.net&quot;,
+            &quot;first_name&quot;: &quot;Guadalupe Greenfelder&quot;,
+            &quot;id&quot;: 58,
+            &quot;latitude&quot;: 3.120746,
+            &quot;longitude&quot;: 11.998619,
+            &quot;last_name&quot;: &quot;Kiarra Walker&quot;,
+            &quot;phone&quot;: &quot;+12402917764&quot;,
+            &quot;points&quot;: 12325,
             &quot;picture&quot;: true,
-            &quot;rule&quot;: []
+            &quot;rule&quot;: [],
+            &quot;city&quot;: {
+                &quot;id&quot;: 4,
+                &quot;country&quot;: &quot;Sudan&quot;,
+                &quot;city&quot;: &quot;New Jacquelynport&quot;,
+                &quot;country_code&quot;: &quot;YE&quot;
+            }
         }
     ]
 }</code>
@@ -2118,8 +2287,8 @@ fetch(url, {
     \"latitude\": 3.86223,
     \"longitude\": 11.5297795,
     \"ip_address\": \"152.72.160.127\",
-    \"password\": \"k4On]wf\",
-    \"points\": 58
+    \"password\": \"IbjMeB`QzA\",
+    \"points\": 77
 }"
 </code></pre></div>
 
@@ -2142,8 +2311,8 @@ let body = {
     "latitude": 3.86223,
     "longitude": 11.5297795,
     "ip_address": "152.72.160.127",
-    "password": "k4On]wf",
-    "points": 58
+    "password": "IbjMeB`QzA",
+    "points": 77
 };
 
 fetch(url, {
@@ -2301,10 +2470,10 @@ fetch(url, {
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                name="password"                data-endpoint="POSTapi-users-create"
-               value="k4On]wf"
+               value="IbjMeB`QzA"
                data-component="body">
     <br>
-<p>Example: <code>k4On]wf</code></p>
+<p>Example: <code>IbjMeB</code>QzA`</p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>points</code></b>&nbsp;&nbsp;
@@ -2312,10 +2481,10 @@ fetch(url, {
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                name="points"                data-endpoint="POSTapi-users-create"
-               value="58"
+               value="77"
                data-component="body">
     <br>
-<p>Must be at least 0. Example: <code>58</code></p>
+<p>Must be at least 0. Example: <code>77</code></p>
         </div>
         </form>
 
@@ -2487,7 +2656,7 @@ vary: Origin
     \"phone\": 693624491,
     \"latitude\": 3.86223,
     \"longitude\": 11.5297795,
-    \"points\": 42,
+    \"points\": 55,
     \"ip_address\": \"152.72.160.127\"
 }"
 </code></pre></div>
@@ -2510,7 +2679,7 @@ let body = {
     "phone": 693624491,
     "latitude": 3.86223,
     "longitude": 11.5297795,
-    "points": 42,
+    "points": 55,
     "ip_address": "152.72.160.127"
 };
 
@@ -2670,10 +2839,10 @@ fetch(url, {
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                name="points"                data-endpoint="PUTapi-users--id--update"
-               value="42"
+               value="55"
                data-component="body">
     <br>
-<p>Must be at least 0. Example: <code>42</code></p>
+<p>Must be at least 0. Example: <code>55</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>ip_address</code></b>&nbsp;&nbsp;

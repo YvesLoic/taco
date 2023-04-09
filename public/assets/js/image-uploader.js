@@ -40,7 +40,7 @@
                 $container.on("drop", fileSelectHandler.bind($container));
 
                 // If there are preloaded images
-                if (plugin.settings.preloaded.length) {
+                if (plugin.settings.preloaded.length > 0) {
 
                     // Change style
                     $container.addClass('has-files');

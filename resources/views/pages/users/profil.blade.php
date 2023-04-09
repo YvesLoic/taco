@@ -96,18 +96,18 @@
                                         </div>
                                     </div>
                                     <div class="user-post">
-                                        <a href="javascript:void();"><img src="images/page-img/p1.jpg" alt="post-image"
+                                        <a href="javascript:void(0);"><img src="images/page-img/p1.jpg" alt="post-image"
                                                                           class="img-fluid"/></a>
                                     </div>
                                     <div class="comment-area p-3">
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div class="d-flex align-items-center">
                                                 <div class="d-flex align-items-center feather-icon mr-3">
-                                                    <a href="javascript:void();"><i class="ri-heart-line"></i></a>
+                                                    <a href="javascript:void(0);"><i class="ri-heart-line"></i></a>
                                                     <span class="ml-1">140</span>
                                                 </div>
                                                 <div class="d-flex align-items-center message-icon">
-                                                    <a href="javascript:void();"><i class="ri-chat-4-line"></i></a>
+                                                    <a href="javascript:void(0);"><i class="ri-chat-4-line"></i></a>
                                                     <span class="ml-1">140</span>
                                                 </div>
                                             </div>
@@ -154,9 +154,9 @@
                                                         <p class="mb-0">Lorem ipsum dolor sit amet</p>
                                                         <div
                                                             class="d-flex flex-wrap align-items-center comment-activity">
-                                                            <a href="javascript:void();">like</a>
-                                                            <a href="javascript:void();">reply</a>
-                                                            <a href="javascript:void();">translate</a>
+                                                            <a href="javascript:void(0);">like</a>
+                                                            <a href="javascript:void(0);">reply</a>
+                                                            <a href="javascript:void(0);">translate</a>
                                                             <span> 5 minit </span>
                                                         </div>
                                                     </div>
@@ -173,9 +173,9 @@
                                                         <p class="mb-0">Lorem ipsum dolor sit amet</p>
                                                         <div
                                                             class="d-flex flex-wrap align-items-center comment-activity">
-                                                            <a href="javascript:void();">like</a>
-                                                            <a href="javascript:void();">reply</a>
-                                                            <a href="javascript:void();">translate</a>
+                                                            <a href="javascript:void(0);">like</a>
+                                                            <a href="javascript:void(0);">reply</a>
+                                                            <a href="javascript:void(0);">translate</a>
                                                             <span> 5 minit </span>
                                                         </div>
                                                     </div>
@@ -186,8 +186,8 @@
                                               action="javascript:void(0);">
                                             <input type="text" class="form-control rounded" placeholder="Lovely!">
                                             <div class="comment-attagement d-flex">
-                                                <a href="javascript:void();"><i class="ri-user-smile-line mr-2"></i></a>
-                                                <a href="javascript:void();"><i class="ri-camera-line mr-2"></i></a>
+                                                <a href="javascript:void(0);"><i class="ri-user-smile-line mr-2"></i></a>
+                                                <a href="javascript:void(0);"><i class="ri-camera-line mr-2"></i></a>
                                             </div>
                                         </form>
                                     </div>
@@ -233,12 +233,12 @@
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div class="d-flex align-items-center">
                                                 <div class="d-flex align-items-center feather-icon mr-3">
-                                                    <a id="clickme" href="javascript:void();"><i
+                                                    <a id="clickme" href="javascript:void(0);"><i
                                                             class="ri-heart-line"></i></a>
                                                     <span class="ml-1">140</span>
                                                 </div>
                                                 <div class="d-flex align-items-center message-icon">
-                                                    <a href="javascript:void();"><i class="ri-chat-4-line"></i></a>
+                                                    <a href="javascript:void(0);"><i class="ri-chat-4-line"></i></a>
                                                     <span class="ml-1">140</span>
                                                 </div>
                                             </div>
@@ -272,8 +272,8 @@
                                               action="javascript:void(0);">
                                             <input type="text" class="form-control rounded" placeholder="Lovely!">
                                             <div class="comment-attagement d-flex">
-                                                <a href="javascript:void();"><i class="ri-user-smile-line mr-2"></i></a>
-                                                <a href="javascript:void();"><i class="ri-camera-line mr-2"></i></a>
+                                                <a href="javascript:void(0);"><i class="ri-user-smile-line mr-2"></i></a>
+                                                <a href="javascript:void(0);"><i class="ri-camera-line mr-2"></i></a>
                                             </div>
                                         </form>
                                     </div>
@@ -641,7 +641,7 @@
                                     </div>
                                     <div class="mt-2">
                                         <h6>{{__('labels.user.attr.city')}}:</h6>
-                                        <p>{{Auth::user()->city}}</p>
+                                        <p>{{Auth::user()->city->name}}</p>
                                     </div>
                                     <div class="mt-2">
                                         <h6>{{__('labels.user.attr.email')}}:</h6>
@@ -672,7 +672,7 @@
                                     <div class="col-3">{{__('labels.user.attr.phone')}}:</div>
                                     <div class="col-9"><a href="#">{{Auth::user()->phone}}</a></div>
                                     <div class="col-3">{{__('labels.user.attr.city')}}:</div>
-                                    <div class="col-9">{{Auth::user()->city}}</div>
+                                    <div class="col-9">{{Auth::user()->city->name}}</div>
                                 </div>
                             </div>
                         </div>

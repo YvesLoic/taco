@@ -122,58 +122,59 @@ class UserForm extends Form
 //            ]
 //        )
             ->add(
-            'rule',
-            'choice',
-            [
-                'label' => __('labels.user.user_form.rule_label'),
-                'attr' => [
-                    'class' => 'form-control'
-                ],
-                'choices' => $this->getData('rule') == "admin" ? $rulesA : $rulesSA,
-                'default_value' => empty($this->getModel()->id) ? 'client' : $this->getModel()->roles->pluck('name')[0]
-            ]
-        )->add(
-            'city_id',
-            'entity',
-            [
-                'empty_value' => __('labels.city.form.city_empty'),
-                'class' => City::class,
-                'label' => __('labels.city.form.city_label'),
-                'property' => 'city',
-                'query_builder' => function (City $city) {
-                    return $city->where('deleted_at', null);
-                },
-                'attr' => [
-                    'class' => 'form-control city-class',
-                ],
-                'rules' => [
-                    'required',
+                'rule',
+                'choice',
+                [
+                    'label' => __('labels.user.user_form.rule_label'),
+                    'attr' => [
+                        'class' => 'form-control'
+                    ],
+                    'choices' => $this->getData('rule') == "admin" ? $rulesA : $rulesSA,
+                    'default_value' => empty($this->getModel()->id) ? 'client' : $this->getModel()->roles->pluck('name')[0]
                 ]
-            ]
-        )->add(
-            'picture',
-            'file',
-            [
-                'label' => __('labels.user.user_form.picture_label'),
-                'attr' => [
-                    'class' => 'form-control',
-                    // 'accept' => "image/jpg, image/jpeg, image/png",
-                ],
-                'rules' => [
-                    'mimes:jpg,jpeg,png',
-                    'max:2048'
+            )->add(
+                'city_id',
+                'entity',
+                [
+                    'empty_value' => __('labels.city.form.city_empty'),
+                    'class' => City::class,
+                    'label' => __('labels.city.form.city_label'),
+                    'property' => 'name',
+                    'default_value' => empty($this->getModel()->id) ?: $this->getModel()->city_id,
+                    'query_builder' => function (City $city) {
+                        return $city->where('deleted_at', null);
+                    },
+                    'attr' => [
+                        'class' => 'form-control city-class',
+                    ],
+                    'rules' => [
+                        'required',
+                    ]
                 ]
-            ]
-        )->add(
-            'submit',
-            'submit',
-            [
-                'label' => empty($this->getModel()->id) ? __('labels.actions.create') : __('labels.actions.update'),
-                'attr' => [
-                    'class' => 'btn btn-primary'
+            )->add(
+                'picture',
+                'file',
+                [
+                    'label' => __('labels.user.user_form.picture_label'),
+                    'attr' => [
+                        'class' => 'form-control',
+                        // 'accept' => "image/jpg, image/jpeg, image/png",
+                    ],
+                    'rules' => [
+                        'mimes:jpg,jpeg,png',
+                        'max:2048'
+                    ]
                 ]
-            ]
-        );
+            )->add(
+                'submit',
+                'submit',
+                [
+                    'label' => empty($this->getModel()->id) ? __('labels.actions.create') : __('labels.actions.update'),
+                    'attr' => [
+                        'class' => 'btn btn-primary'
+                    ]
+                ]
+            );
 
         if ($this->getModel() && $this->getModel()->id) {
             $url = route('user_update', ['id' => $this->getModel()->id, 'lang' => app()->getLocale()]);

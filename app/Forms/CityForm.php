@@ -2,6 +2,7 @@
 
 namespace App\Forms;
 
+use App\Models\Country;
 use Kris\LaravelFormBuilder\Form;
 
 class CityForm extends Form
@@ -11,21 +12,26 @@ class CityForm extends Form
     public function buildForm()
     {
         $this->add(
-            'country',
-            'text',
+            'country_id',
+            'entity',
             [
                 'label' => __('labels.city.form.country_label'),
+                'class' => Country::class,
+                'property' => 'name',
+                'query_builder' => function (Country $country) {
+                    return $country;
+                },
                 'attr' => [
-                    'class' => 'form-control',
+                    'class' => 'form-control country',
                     'placeholder' => __('labels.city.form.country_holder'),
                 ],
                 'rules' => [
                     'required',
-                    'max:50'
+                    'max:50',
                 ]
             ]
         )->add(
-            'city',
+            'name',
             'text',
             [
                 'label' => __('labels.city.form.city_label'),
@@ -35,7 +41,8 @@ class CityForm extends Form
                 ],
                 'rules' => [
                     'required',
-                    'max:50'
+                    'max:50',
+                    'unique:cities',
                 ]
             ]
         )->add(

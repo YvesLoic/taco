@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Taco",
-        "_postman_id": "546f09ff-2829-483c-9a94-7ccdf6b5ac92",
+        "_postman_id": "160f58e7-bfc2-4d55-b1c1-adc195bab48b",
         "description": "Complete documentation for Taco API server.",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -130,7 +130,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "57"
+                                    "value": "56"
                                 },
                                 {
                                     "key": "vary",
@@ -169,7 +169,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"content\":\"explicabo\",\"note\":4,\"sender_id\":1,\"receiver_id\":2}"
+                            "raw": "{\"content\":\"ratione\",\"note\":4,\"sender_id\":1,\"receiver_id\":2}"
                         },
                         "description": "Permet \u00e0 un utilisateur d'enregistrer un nouvel avis.'"
                     },
@@ -364,7 +364,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":[{\"id\":1,\"to\":\"Mvog ada\",\"to_lat\":3.86,\"to_lon\":11.46,\"from\":\"Cit\\u00e9 U\",\"from_lat\":3.57,\"from_lon\":11.25,\"distance\":3575,\"price\":5500,\"status\":\"broadcasting\",\"type\":\"depot\",\"created_at\":\"2023-02-08T12:24:49.000000Z\",\"client\":{\"id\":16,\"first_name\":\"Roma Shields Jr.\",\"last_name\":\"Gabriel Rowe\"}},{\"id\":1,\"to\":\"Mvog ada\",\"to_lat\":3.86,\"to_lon\":11.46,\"from\":\"Cit\\u00e9 U\",\"from_lat\":3.57,\"from_lon\":11.25,\"distance\":3575,\"price\":5500,\"status\":\"broadcasting\",\"type\":\"depot\",\"created_at\":\"2023-02-08T12:24:49.000000Z\",\"client\":{\"id\":16,\"first_name\":\"Roma Shields Jr.\",\"last_name\":\"Gabriel Rowe\"}}]}",
+                            "body": "{\"data\":[{\"id\":1,\"to\":\"Maison\",\"to_lat\":3.85,\"to_lon\":11.37,\"from\":\"Poste Centrale\",\"from_lat\":3.9,\"from_lon\":11.46,\"distance\":45,\"price\":5000,\"status\":\"broadcasting\",\"type\":\"depot\",\"created_at\":null,\"client\":{\"id\":11,\"first_name\":\"Adah Brakus\",\"last_name\":\"Filomena Tromp\"},\"driver\":{\"id\":null,\"first_name\":null,\"last_name\":null}},{\"id\":1,\"to\":\"Maison\",\"to_lat\":3.85,\"to_lon\":11.37,\"from\":\"Poste Centrale\",\"from_lat\":3.9,\"from_lon\":11.46,\"distance\":45,\"price\":5000,\"status\":\"broadcasting\",\"type\":\"depot\",\"created_at\":null,\"client\":{\"id\":11,\"first_name\":\"Adah Brakus\",\"last_name\":\"Filomena Tromp\"},\"driver\":{\"id\":null,\"first_name\":null,\"last_name\":null}}]}",
                             "name": ""
                         }
                     ]
@@ -391,7 +391,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"to\":\"Mvog Ada\",\"to_lat\":3,\"to_lon\":11,\"from\":\"Cit\u00e9 U\",\"from_lat\":3,\"from_lon\":11,\"distance\":8,\"price\":2500,\"status\":\"pending\",\"type\":\"libero\",\"car_id\":73.706172087,\"user_id\":1}"
+                            "raw": "{\"to\":\"Mvog Ada\",\"to_lat\":3,\"to_lon\":11,\"from\":\"Cit\u00e9 U\",\"from_lat\":3,\"from_lon\":11,\"distance\":8,\"price\":2500,\"status\":\"pending\",\"type\":\"dolorem\",\"car_id\":7939.02575,\"user_id\":1}"
                         },
                         "description": "Ne sera plus utilis\u00e9e en raison d'une migration technique.",
                         "auth": {
@@ -499,6 +499,71 @@
                             "name": ""
                         }
                     ]
+                },
+                {
+                    "name": "Show.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/cars\/one",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/cars\/one",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "Identifiant de la ressource demand\u00e9e."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer ${token}"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Cherche une voiture par son identifiant et retourne ses informations."
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "57"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"error\":\"Wrong number of segments\"}",
+                            "name": ""
+                        }
+                    ]
                 }
             ]
         },
@@ -556,7 +621,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":[{\"distance\":null,\"email\":\"rippin.elise@example.org\",\"first_name\":\"Alex Crona\",\"id\":55,\"latitude\":3.810586,\"longitude\":11.987799,\"last_name\":\"Eleanora Douglas\",\"phone\":\"+18574616524\",\"points\":71029,\"picture\":true,\"rule\":[]},{\"distance\":null,\"email\":\"gayle.carroll@example.net\",\"first_name\":\"Jolie Wilderman\",\"id\":56,\"latitude\":3.293194,\"longitude\":11.206936,\"last_name\":\"Yessenia Hodkiewicz\",\"phone\":\"+19043066030\",\"points\":15843,\"picture\":true,\"rule\":[]}]}",
+                            "body": "{\"data\":[{\"distance\":null,\"email\":\"neal.bartoletti@example.com\",\"first_name\":\"Fae Nienow\",\"id\":57,\"latitude\":3.485089,\"longitude\":11.50925,\"last_name\":\"Alena Romaguera V\",\"phone\":\"+18433270167\",\"points\":56472,\"picture\":true,\"rule\":[],\"city\":{\"id\":2,\"country\":\"Cameroon\",\"city\":\"Douala\",\"country_code\":\"CM\"}},{\"distance\":null,\"email\":\"hill.stuart@example.net\",\"first_name\":\"Guadalupe Greenfelder\",\"id\":58,\"latitude\":3.120746,\"longitude\":11.998619,\"last_name\":\"Kiarra Walker\",\"phone\":\"+12402917764\",\"points\":12325,\"picture\":true,\"rule\":[],\"city\":{\"id\":4,\"country\":\"Sudan\",\"city\":\"New Jacquelynport\",\"country_code\":\"YE\"}}]}",
                             "name": ""
                         }
                     ]
@@ -583,7 +648,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"first_name\":\"John\",\"last_name\":\"Doe\",\"email\":\"johndoe@example.com\",\"phone\":698586208,\"latitude\":3.86223,\"longitude\":11.5297795,\"ip_address\":\"152.72.160.127\",\"password\":\"k4On]wf\",\"points\":58}"
+                            "raw": "{\"first_name\":\"John\",\"last_name\":\"Doe\",\"email\":\"johndoe@example.com\",\"phone\":698586208,\"latitude\":3.86223,\"longitude\":11.5297795,\"ip_address\":\"152.72.160.127\",\"password\":\"IbjMeB`QzA\",\"points\":77}"
                         },
                         "description": "Enregistrement des informations li\u00e9es au nouvel utilisateur"
                     },
@@ -684,7 +749,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"first_name\":\"John\",\"last_name\":\"Doe\",\"email\":\"johndoe@example.com\",\"phone\":693624491,\"latitude\":3.86223,\"longitude\":11.5297795,\"points\":42,\"ip_address\":\"152.72.160.127\"}"
+                            "raw": "{\"first_name\":\"John\",\"last_name\":\"Doe\",\"email\":\"johndoe@example.com\",\"phone\":693624491,\"latitude\":3.86223,\"longitude\":11.5297795,\"points\":55,\"ip_address\":\"152.72.160.127\"}"
                         },
                         "description": "Met \u00e0 jour les informations en rapport avec un utilisateur en Base de donn\u00e9es."
                     },

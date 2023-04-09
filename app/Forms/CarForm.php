@@ -111,7 +111,7 @@ class CarForm extends Form
                 ]
             ]
         )->add(
-            'pictures',
+            'pictures1',
             'static',
             [
                 'label' => __('labels.car.form.car_pics'),

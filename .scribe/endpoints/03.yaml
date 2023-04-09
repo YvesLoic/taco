@@ -47,3 +47,55 @@ endpoints:
     method: null
     route: null
     custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/cars/one
+    metadata:
+      groupName: 'Routes pour les voitures'
+      groupDescription: |-
+
+        Collection des opérations liés aux voitures.
+      subgroup: ''
+      subgroupDescription: ''
+      title: Show.
+      description: 'Cherche une voiture par son identifiant et retourne ses informations.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+      Authorization: 'Bearer ${token}'
+    urlParameters:
+      id:
+        name: id
+        description: 'Identifiant de la ressource demandée.'
+        required: false
+        example: 1.0
+        type: number
+        custom: []
+    cleanUrlParameters:
+      id: 1.0
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"error":"Wrong number of segments"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '57'
+          vary: Origin
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

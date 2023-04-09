@@ -104,9 +104,9 @@ class UserController extends Controller
     public function show(Request $request)
     {
         $id = $request->id;
-        $user = User::with(['cars', 'displacements', 'notices'])->find($id);
+        $user = User::with(['cars', 'displacements', 'notices', 'city.country'])->find($id);
         if (empty($user)) {
-            $user = User::withTrashed()->with(['cars','displacements', 'notices'])->find($id);
+            $user = User::withTrashed()->with(['cars', 'displacements', 'notices', 'city.country'])->find($id);
             if (empty($user)) {
                 return redirect()->route('user_index')
                     ->with(
@@ -167,8 +167,10 @@ class UserController extends Controller
             File::delete(public_path('assets/images/users/' . $user->picture));
             $this->uploadUserPicture($request, $user);
         }
-        $user->removeRole($user->roles->pluck('name')[0]);
-        $user->assignRole($request->input('rule'));
+        if (auth()->id() != $user->id) {
+            $user->removeRole($user->roles->pluck('name')[0]);
+            $user->assignRole($request->input('rule'));
+        }
         $user->update();
         return redirect()->route('user_index')
             ->with(
@@ -250,7 +252,7 @@ class UserController extends Controller
      *
      * @return UserForm|Form
      */
-    private function _getForm(Request $request, ?User $user = null)
+    private function _getForm(Request $request, User $user = null)
     {
         $user = $user ?: new User();
         return $this->_formBuilder->create(
@@ -273,7 +275,7 @@ class UserController extends Controller
      *
      * @return User
      */
-    private function _fillUserData(Request $req, ?User $user = null)
+    private function _fillUserData(Request $req, User $user = null)
     {
         $u = $user ?: new User();
         $u->first_name = $req->input('first_name');
@@ -310,7 +312,7 @@ class UserController extends Controller
      */
     public function edit_profile(Request $request)
     {
-        $user = User::find($request->user()->id);
+        $user = User::query()->find($request->user()->id);
         $form = $this->_getForm($request, $user);
         $token = $request->route()->parameter('token');
         return view('pages.users.edit', compact('form'));

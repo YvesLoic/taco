@@ -248,7 +248,7 @@ class CarController extends Controller
      * @param Car|null $car
      * @return Car|null
      */
-    private function _fillCarData(Request $req, ?Car $car = null)
+    private function _fillCarData(Request $req, Car $car = null)
     {
         $c = $car ?: new Car();
         $c->color = $req->input('color');
@@ -266,7 +266,7 @@ class CarController extends Controller
      * @param Car|null $car
      * @return Form
      */
-    private function _getForm(?Car $car = null)
+    private function _getForm(Car $car = null)
     {
         $car = $car ?: new Car();
         return $this->_formBuilder->create(

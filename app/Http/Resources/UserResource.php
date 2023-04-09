@@ -31,6 +31,12 @@ class UserResource extends JsonResource
                 ?:
                 $request->getSchemeAndHttpHost() . '/assets/images/users/' . $this->picture,
             "rule" => $this->roles->pluck('name'),
+            "city" => [
+                "id" => $this->city->id,
+                "country" => $this->city->country->name,
+                "city" => $this->city->name,
+                "country_code" => $this->city->country->code,
+            ]
         ];
     }
 }

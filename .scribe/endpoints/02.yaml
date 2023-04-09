@@ -56,7 +56,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":[{"distance":null,"email":"rippin.elise@example.org","first_name":"Alex Crona","id":55,"latitude":3.810586,"longitude":11.987799,"last_name":"Eleanora Douglas","phone":"+18574616524","points":71029,"picture":true,"rule":[]},{"distance":null,"email":"gayle.carroll@example.net","first_name":"Jolie Wilderman","id":56,"latitude":3.293194,"longitude":11.206936,"last_name":"Yessenia Hodkiewicz","phone":"+19043066030","points":15843,"picture":true,"rule":[]}]}'
+        content: '{"data":[{"distance":null,"email":"neal.bartoletti@example.com","first_name":"Fae Nienow","id":57,"latitude":3.485089,"longitude":11.50925,"last_name":"Alena Romaguera V","phone":"+18433270167","points":56472,"picture":true,"rule":[],"city":{"id":2,"country":"Cameroon","city":"Douala","country_code":"CM"}},{"distance":null,"email":"hill.stuart@example.net","first_name":"Guadalupe Greenfelder","id":58,"latitude":3.120746,"longitude":11.998619,"last_name":"Kiarra Walker","phone":"+12402917764","points":12325,"picture":true,"rule":[],"city":{"id":4,"country":"Sudan","city":"New Jacquelynport","country_code":"YE"}}]}'
         headers: []
         description: ''
         custom: []
@@ -142,14 +142,14 @@ endpoints:
         name: password
         description: ''
         required: false
-        example: 'k4On]wf'
+        example: IbjMeB`QzA
         type: string
         custom: []
       points:
         name: points
         description: 'Must be at least 0.'
         required: false
-        example: 58
+        example: 77
         type: number
         custom: []
     cleanBodyParameters:
@@ -160,8 +160,8 @@ endpoints:
       latitude: 3.86223
       longitude: 11.5297795
       ip_address: 152.72.160.127
-      password: 'k4On]wf'
-      points: 58
+      password: IbjMeB`QzA
+      points: 77
     fileParameters: []
     responses: []
     responseFields: []
@@ -299,7 +299,7 @@ endpoints:
         name: points
         description: 'Must be at least 0.'
         required: false
-        example: 42
+        example: 55
         type: number
         custom: []
       ip_address:
@@ -316,7 +316,7 @@ endpoints:
       phone: 693624491.0
       latitude: 3.86223
       longitude: 11.5297795
-      points: 42
+      points: 55
       ip_address: 152.72.160.127
     fileParameters: []
     responses: []

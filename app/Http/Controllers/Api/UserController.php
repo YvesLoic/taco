@@ -9,6 +9,7 @@ use App\Http\Requests\UserStoreRequest;
 use App\Http\Requests\UserUpdateRequest;
 use App\Http\Resources\UserResource;
 use App\Models\City;
+use App\Models\Country;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -54,7 +55,7 @@ class UserController extends Controller
         $latitude = $request->lat;
         $longitude = $request->lon;
 
-        $usersNearBy = User::query()
+        $usersNearBy = User::query()->with(['city.country'])
             ->select(
                 '*',
                 DB::raw('6371 * acos(cos(radians(' . $latitude . '))
@@ -97,13 +98,19 @@ class UserController extends Controller
     {
         $request->validated();
         $data = Location::get($request->input('ip_address'));
-        $city = City::query()
-            ->where('country', $data->countryName)
+        $country = Country::query()->where('name', $data->countryName)
             ->firstOr(function () use ($data) {
+                return Country::create([
+                    'name' => $data->countryName,
+                    'code' => $data->countryCode
+                ]);
+            });
+        $city = City::query()
+            ->where('name', $data->cityName)
+            ->firstOr(function () use ($country, $data) {
                 return City::create([
-                    'country' => $data->countryName,
-                    'city' => $data->cityName,
-                    'country_code' => $data->countryCode,
+                    'name' => $data->cityName,
+                    'country_id' => $country->id,
                 ]);
             });
         $newUser = User::create(
@@ -144,7 +151,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $user = User::query()->find($id);
+        $user = User::query()->with(['city.country'])->find($id);
         if (empty($user)) {
             throw new UserException(__('labels.exception.not_found:' . $id), 404);
         }
@@ -175,7 +182,7 @@ class UserController extends Controller
     public function update(UserUpdateRequest $request, $id)
     {
         $val = $request->validated();
-        $updated_user = User::query()->find($id);
+        $updated_user = User::query()->with(['city.country'])->find($id);
         if (empty($updated_user)) {
             throw new UserException(__('labels.exception.not_found:' . $id), 404);
         }

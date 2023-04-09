@@ -40,7 +40,10 @@ class CityController extends Controller
                 ->addColumn('effective', function ($city) {
                     return view('pages.cities._effective', compact('city'));
                 })
-                ->rawColumns(['action', 'effective'])
+                ->addColumn('country', function ($city) {
+                    return view('pages.cities._country', compact('city'));
+                })
+                ->rawColumns(['action', 'effective', 'country'])
                 ->make();
         }
         return view('pages.cities.index');
@@ -211,8 +214,8 @@ class CityController extends Controller
     private function _fillCityData(Request $request, City $city = null)
     {
         $city = $city ?: new City();
-        $city->country = $request->input('country');
-        $city->city = $request->input('city');
+        $city->country_id = $request->input('country_id');
+        $city->name = $request->input('name');
         return $city;
     }
 

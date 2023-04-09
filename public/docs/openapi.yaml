@@ -145,7 +145,7 @@ paths:
                 content:
                   type: string
                   description: 'contenu de l''avis.'
-                  example: explicabo
+                  example: ratione
                 note:
                   type: integer
                   description: 'note de l''avis.'
@@ -366,76 +366,92 @@ paths:
                   data:
                     -
                       id: 1
-                      to: 'Mvog ada'
-                      to_lat: 3.86
-                      to_lon: 11.46
-                      from: 'Cité U'
-                      from_lat: 3.57
-                      from_lon: 11.25
-                      distance: 3575
-                      price: 5500
+                      to: Maison
+                      to_lat: 3.85
+                      to_lon: 11.37
+                      from: 'Poste Centrale'
+                      from_lat: 3.9
+                      from_lon: 11.46
+                      distance: 45
+                      price: 5000
                       status: broadcasting
                       type: depot
-                      created_at: '2023-02-08T12:24:49.000000Z'
+                      created_at: null
                       client:
-                        id: 16
-                        first_name: 'Roma Shields Jr.'
-                        last_name: 'Gabriel Rowe'
+                        id: 11
+                        first_name: 'Adah Brakus'
+                        last_name: 'Filomena Tromp'
+                      driver:
+                        id: null
+                        first_name: null
+                        last_name: null
                     -
                       id: 1
-                      to: 'Mvog ada'
-                      to_lat: 3.86
-                      to_lon: 11.46
-                      from: 'Cité U'
-                      from_lat: 3.57
-                      from_lon: 11.25
-                      distance: 3575
-                      price: 5500
+                      to: Maison
+                      to_lat: 3.85
+                      to_lon: 11.37
+                      from: 'Poste Centrale'
+                      from_lat: 3.9
+                      from_lon: 11.46
+                      distance: 45
+                      price: 5000
                       status: broadcasting
                       type: depot
-                      created_at: '2023-02-08T12:24:49.000000Z'
+                      created_at: null
                       client:
-                        id: 16
-                        first_name: 'Roma Shields Jr.'
-                        last_name: 'Gabriel Rowe'
+                        id: 11
+                        first_name: 'Adah Brakus'
+                        last_name: 'Filomena Tromp'
+                      driver:
+                        id: null
+                        first_name: null
+                        last_name: null
                 properties:
                   data:
                     type: array
                     example:
                       -
                         id: 1
-                        to: 'Mvog ada'
-                        to_lat: 3.86
-                        to_lon: 11.46
-                        from: 'Cité U'
-                        from_lat: 3.57
-                        from_lon: 11.25
-                        distance: 3575
-                        price: 5500
+                        to: Maison
+                        to_lat: 3.85
+                        to_lon: 11.37
+                        from: 'Poste Centrale'
+                        from_lat: 3.9
+                        from_lon: 11.46
+                        distance: 45
+                        price: 5000
                         status: broadcasting
                         type: depot
-                        created_at: '2023-02-08T12:24:49.000000Z'
+                        created_at: null
                         client:
-                          id: 16
-                          first_name: 'Roma Shields Jr.'
-                          last_name: 'Gabriel Rowe'
+                          id: 11
+                          first_name: 'Adah Brakus'
+                          last_name: 'Filomena Tromp'
+                        driver:
+                          id: null
+                          first_name: null
+                          last_name: null
                       -
                         id: 1
-                        to: 'Mvog ada'
-                        to_lat: 3.86
-                        to_lon: 11.46
-                        from: 'Cité U'
-                        from_lat: 3.57
-                        from_lon: 11.25
-                        distance: 3575
-                        price: 5500
+                        to: Maison
+                        to_lat: 3.85
+                        to_lon: 11.37
+                        from: 'Poste Centrale'
+                        from_lat: 3.9
+                        from_lon: 11.46
+                        distance: 45
+                        price: 5000
                         status: broadcasting
                         type: depot
-                        created_at: '2023-02-08T12:24:49.000000Z'
+                        created_at: null
                         client:
-                          id: 16
-                          first_name: 'Roma Shields Jr.'
-                          last_name: 'Gabriel Rowe'
+                          id: 11
+                          first_name: 'Adah Brakus'
+                          last_name: 'Filomena Tromp'
+                        driver:
+                          id: null
+                          first_name: null
+                          last_name: null
                     items:
                       type: object
                       properties:
@@ -444,28 +460,28 @@ paths:
                           example: 1
                         to:
                           type: string
-                          example: 'Mvog ada'
+                          example: Maison
                         to_lat:
                           type: number
-                          example: 3.86
+                          example: 3.85
                         to_lon:
                           type: number
-                          example: 11.46
+                          example: 11.37
                         from:
                           type: string
-                          example: 'Cité U'
+                          example: 'Poste Centrale'
                         from_lat:
                           type: number
-                          example: 3.57
+                          example: 3.9
                         from_lon:
                           type: number
-                          example: 11.25
+                          example: 11.46
                         distance:
                           type: integer
-                          example: 3575
+                          example: 45
                         price:
                           type: integer
-                          example: 5500
+                          example: 5000
                         status:
                           type: string
                           example: broadcasting
@@ -474,19 +490,31 @@ paths:
                           example: depot
                         created_at:
                           type: string
-                          example: '2023-02-08T12:24:49.000000Z'
+                          example: null
                         client:
                           type: object
                           properties:
                             id:
                               type: integer
-                              example: 16
+                              example: 11
                             first_name:
                               type: string
-                              example: 'Roma Shields Jr.'
+                              example: 'Adah Brakus'
                             last_name:
                               type: string
-                              example: 'Gabriel Rowe'
+                              example: 'Filomena Tromp'
+                        driver:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: null
+                            first_name:
+                              type: string
+                              example: null
+                            last_name:
+                              type: string
+                              example: null
       tags:
         - 'Routes pour les déplacements'
   /api/trip/create:
@@ -558,11 +586,11 @@ paths:
                 type:
                   type: string
                   description: 'Must be one of <code>depot</code>, <code>course</code>, or <code>voyage</code>.'
-                  example: libero
+                  example: dolorem
                 car_id:
                   type: number
                   description: ''
-                  example: 73.706172087
+                  example: 7939.02575
                 user_id:
                   type: integer
                   description: 'client concerné par le trajet.'
@@ -655,6 +683,63 @@ paths:
                     example: 'Wrong number of segments'
       tags:
         - 'Routes pour les voitures'
+  /api/cars/one:
+    get:
+      summary: Show.
+      operationId: show
+      description: 'Cherche une voiture par son identifiant et retourne ses informations.'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer ${token}'
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: 'Wrong number of segments'
+                properties:
+                  error:
+                    type: string
+                    example: 'Wrong number of segments'
+      tags:
+        - 'Routes pour les voitures'
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'Optional parameter. Identifiant de la ressource demandée.'
+        required: true
+        schema:
+          type: number
+        examples:
+          omitted:
+            summary: 'When the value is omitted'
+            value: ''
+          present:
+            summary: 'When the value is present'
+            value: 1.0
   /api/users/nearby:
     get:
       summary: ListAll.
@@ -723,56 +808,76 @@ paths:
                   data:
                     -
                       distance: null
-                      email: rippin.elise@example.org
-                      first_name: 'Alex Crona'
-                      id: 55
-                      latitude: 3.810586
-                      longitude: 11.987799
-                      last_name: 'Eleanora Douglas'
-                      phone: '+18574616524'
-                      points: 71029
+                      email: neal.bartoletti@example.com
+                      first_name: 'Fae Nienow'
+                      id: 57
+                      latitude: 3.485089
+                      longitude: 11.50925
+                      last_name: 'Alena Romaguera V'
+                      phone: '+18433270167'
+                      points: 56472
                       picture: true
                       rule: []
+                      city:
+                        id: 2
+                        country: Cameroon
+                        city: Douala
+                        country_code: CM
                     -
                       distance: null
-                      email: gayle.carroll@example.net
-                      first_name: 'Jolie Wilderman'
-                      id: 56
-                      latitude: 3.293194
-                      longitude: 11.206936
-                      last_name: 'Yessenia Hodkiewicz'
-                      phone: '+19043066030'
-                      points: 15843
+                      email: hill.stuart@example.net
+                      first_name: 'Guadalupe Greenfelder'
+                      id: 58
+                      latitude: 3.120746
+                      longitude: 11.998619
+                      last_name: 'Kiarra Walker'
+                      phone: '+12402917764'
+                      points: 12325
                       picture: true
                       rule: []
+                      city:
+                        id: 4
+                        country: Sudan
+                        city: 'New Jacquelynport'
+                        country_code: YE
                 properties:
                   data:
                     type: array
                     example:
                       -
                         distance: null
-                        email: rippin.elise@example.org
-                        first_name: 'Alex Crona'
-                        id: 55
-                        latitude: 3.810586
-                        longitude: 11.987799
-                        last_name: 'Eleanora Douglas'
-                        phone: '+18574616524'
-                        points: 71029
+                        email: neal.bartoletti@example.com
+                        first_name: 'Fae Nienow'
+                        id: 57
+                        latitude: 3.485089
+                        longitude: 11.50925
+                        last_name: 'Alena Romaguera V'
+                        phone: '+18433270167'
+                        points: 56472
                         picture: true
                         rule: []
+                        city:
+                          id: 2
+                          country: Cameroon
+                          city: Douala
+                          country_code: CM
                       -
                         distance: null
-                        email: gayle.carroll@example.net
-                        first_name: 'Jolie Wilderman'
-                        id: 56
-                        latitude: 3.293194
-                        longitude: 11.206936
-                        last_name: 'Yessenia Hodkiewicz'
-                        phone: '+19043066030'
-                        points: 15843
+                        email: hill.stuart@example.net
+                        first_name: 'Guadalupe Greenfelder'
+                        id: 58
+                        latitude: 3.120746
+                        longitude: 11.998619
+                        last_name: 'Kiarra Walker'
+                        phone: '+12402917764'
+                        points: 12325
                         picture: true
                         rule: []
+                        city:
+                          id: 4
+                          country: Sudan
+                          city: 'New Jacquelynport'
+                          country_code: YE
                     items:
                       type: object
                       properties:
@@ -781,34 +886,49 @@ paths:
                           example: null
                         email:
                           type: string
-                          example: rippin.elise@example.org
+                          example: neal.bartoletti@example.com
                         first_name:
                           type: string
-                          example: 'Alex Crona'
+                          example: 'Fae Nienow'
                         id:
                           type: integer
-                          example: 55
+                          example: 57
                         latitude:
                           type: number
-                          example: 3.810586
+                          example: 3.485089
                         longitude:
                           type: number
-                          example: 11.987799
+                          example: 11.50925
                         last_name:
                           type: string
-                          example: 'Eleanora Douglas'
+                          example: 'Alena Romaguera V'
                         phone:
                           type: string
-                          example: '+18574616524'
+                          example: '+18433270167'
                         points:
                           type: integer
-                          example: 71029
+                          example: 56472
                         picture:
                           type: boolean
                           example: true
                         rule:
                           type: array
                           example: []
+                        city:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                              example: 2
+                            country:
+                              type: string
+                              example: Cameroon
+                            city:
+                              type: string
+                              example: Douala
+                            country_code:
+                              type: string
+                              example: CM
       tags:
         - 'Routes pour utilisateurs'
   /api/users/create:
@@ -872,11 +992,11 @@ paths:
                 password:
                   type: string
                   description: ''
-                  example: 'k4On]wf'
+                  example: IbjMeB`QzA
                 points:
                   type: number
                   description: 'Must be at least 0.'
-                  example: 58
+                  example: 77
               required:
                 - first_name
                 - last_name
@@ -996,7 +1116,7 @@ paths:
                 points:
                   type: number
                   description: 'Must be at least 0.'
-                  example: 42
+                  example: 55
                 ip_address:
                   type: string
                   description: 'adresse ip de l''utilisateur.'

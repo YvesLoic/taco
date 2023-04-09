@@ -54,13 +54,23 @@ class UserSeeder extends Seeder
             "password" => Hash::make("681619855"),
             "points" => 7500,
             "city_id" => rand(1, 5),
-        ])->assignRole("driver");
+        ]);
+
+        User::create([
+            "first_name" => "Admin",
+            "last_name" => "admin",
+            "phone" => "679103737",
+            "email" => "admin@gmail.com",
+            "password" => Hash::make("679103737"),
+            "points" => 7500,
+            "city_id" => rand(1, 5),
+        ])->assignRole("admin");
 
         User::factory()
             ->afterCreating(function ($user) {
-                $user->assignRole(Role::findById(rand(1, 3)));
+                $user->assignRole(Role::findById(rand(1, 2)));
             })
-            ->count(48)
+            ->count(45)
             ->create();
     }
 }

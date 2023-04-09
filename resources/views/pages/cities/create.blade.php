@@ -37,3 +37,11 @@
         </div>
     </div>
 @endsection
+
+@section('scripts')
+    <script type="text/javascript">
+        (function ($) {
+            $('.country').select2();
+        })(jQuery);
+    </script>
+@endsection

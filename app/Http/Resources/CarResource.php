@@ -20,11 +20,15 @@ class CarResource extends JsonResource
             'color' => $this->color,
             'matricule' => $this->registration_number,
             'model' => $this->model,
-            'category' => [
+            'type' => [
                 'name' => $this->type->label,
                 'price' => $this->type->amount
             ],
-            'owner' => $this->user->last_name . ' ' . $this->user->first_name,
+            'user' => [
+                'id' => $this->user->id,
+                'first_name' => $this->user->first_name,
+                'last_name' => $this->user->last_name
+            ],
             'pictures' => $this->pictures->pluck('src'),
         ];
     }

@@ -50,7 +50,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":[{"id":1,"to":"Mvog ada","to_lat":3.86,"to_lon":11.46,"from":"Cit\u00e9 U","from_lat":3.57,"from_lon":11.25,"distance":3575,"price":5500,"status":"broadcasting","type":"depot","created_at":"2023-02-08T12:24:49.000000Z","client":{"id":16,"first_name":"Roma Shields Jr.","last_name":"Gabriel Rowe"}},{"id":1,"to":"Mvog ada","to_lat":3.86,"to_lon":11.46,"from":"Cit\u00e9 U","from_lat":3.57,"from_lon":11.25,"distance":3575,"price":5500,"status":"broadcasting","type":"depot","created_at":"2023-02-08T12:24:49.000000Z","client":{"id":16,"first_name":"Roma Shields Jr.","last_name":"Gabriel Rowe"}}]}'
+        content: '{"data":[{"id":1,"to":"Maison","to_lat":3.85,"to_lon":11.37,"from":"Poste Centrale","from_lat":3.9,"from_lon":11.46,"distance":45,"price":5000,"status":"broadcasting","type":"depot","created_at":null,"client":{"id":11,"first_name":"Adah Brakus","last_name":"Filomena Tromp"},"driver":{"id":null,"first_name":null,"last_name":null}},{"id":1,"to":"Maison","to_lat":3.85,"to_lon":11.37,"from":"Poste Centrale","from_lat":3.9,"from_lon":11.46,"distance":45,"price":5000,"status":"broadcasting","type":"depot","created_at":null,"client":{"id":11,"first_name":"Adah Brakus","last_name":"Filomena Tromp"},"driver":{"id":null,"first_name":null,"last_name":null}}]}'
         headers: []
         description: ''
         custom: []
@@ -150,14 +150,14 @@ endpoints:
         name: type
         description: 'Must be one of <code>depot</code>, <code>course</code>, or <code>voyage</code>.'
         required: false
-        example: libero
+        example: dolorem
         type: string
         custom: []
       car_id:
         name: car_id
         description: ''
         required: false
-        example: 73.706172087
+        example: 7939.02575
         type: number
         custom: []
       user_id:
@@ -177,8 +177,8 @@ endpoints:
       distance: 8.0
       price: 2500
       status: pending
-      type: libero
-      car_id: 73.706172087
+      type: dolorem
+      car_id: 7939.02575
       user_id: 1
     fileParameters: []
     responses: []

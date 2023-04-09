@@ -238,7 +238,7 @@
                                     </div>
                                     <div class="mt-2">
                                         <h6>{{__('labels.user.attr.city')}}:</h6>
-                                        <p>{{$user->city->country.', '.$user->city->city}}</p>
+                                        <p>{{$user->city->country->name.', '.$user->city->name}}</p>
                                     </div>
                                     <div class="mt-2">
                                         <h6>{{__('labels.user.attr.email')}}:</h6>
@@ -278,7 +278,7 @@
                                     <div class="col-5">{{__('labels.user.attr.phone')}}:</div>
                                     <div class="col-7"><a href="javascript:void(0);">{{$user->phone}}</a></div>
                                     <div class="col-5">{{__('labels.user.attr.city')}}:</div>
-                                    <div class="col-7">{{$user->city->city}}</div>
+                                    <div class="col-7">{{$user->city->name}}</div>
                                 </div>
                                 @if(auth()->user()->roles->pluck('name')[0] == 'super_admin' && auth()->user()->id!=$user->id)
                                     <div class="row">

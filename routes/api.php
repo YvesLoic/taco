@@ -53,6 +53,7 @@ Route::middleware(['jwt', 'role:client|driver', 'cors', 'position'])
 
         Route::prefix('cars')->group(function () {
             Route::get('owner', [CarController::class, 'index']);
+            Route::get('one', [CarController::class, 'show']);
         });
 
         Route::prefix('alert')->group(function () {

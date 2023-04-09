@@ -61,8 +61,8 @@
                         return '<span>{{__('labels.city.attr.country')}}</span>';
                     },
                 }, {
-                    "data": "city",
-                    "name": "city",
+                    "data": "name",
+                    "name": "name",
                     "title": function () {
                         return '<span>{{__('labels.city.attr.city')}}</span>';
                     },

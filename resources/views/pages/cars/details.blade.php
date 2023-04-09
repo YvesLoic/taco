@@ -248,7 +248,7 @@
                                     </div>
                                     <div class="mt-2">
                                         <h6>{{__('labels.user.attr.city')}}</h6>
-                                        <p>{{$car->user->city->country.', '.$car->user->city->city}}</p>
+                                        <p>{{$car->user->city->country->name.', '.$car->user->city->name}}</p>
                                     </div>
                                     <div class="mt-2">
                                         <h6>{{__('labels.user.attr.email')}}:</h6>

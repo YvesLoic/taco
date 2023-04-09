@@ -28,7 +28,9 @@ class CarController extends Controller
     public function index()
     {
         $user = auth('api')->user();
-        $car = Car::with('pictures')->where('user_id', '=', $user->id)->get();
+        $car = Car::with(['type', 'user', 'pictures'])
+            ->where('user_id', '=', $user->id)
+            ->get();
         if (!empty($car)) {
             return ApiResponse::success(
                 200,
@@ -39,5 +41,27 @@ class CarController extends Controller
             404,
             'No Car found for userId:' . $user->id
         );
+    }
+
+    /**
+     * Show.
+     *
+     * Cherche une voiture par son identifiant et retourne ses informations.
+     *
+     * @urlParam id number Identifiant de la ressource demandée. Example: 1
+     * @apiResourceModel App\Http\Resources\CarResource
+     * @authenticated
+     * @header Authorization Bearer ${token}
+     *
+     * @param int $id
+     * @return JsonResponse
+     */
+    public function show($id)
+    {
+        $car = Car::query()->with(['type', 'user', 'pictures'])->find($id);
+        if (empty($car)) {
+            return ApiResponse::error(404, __('labels.actions.messages.error.not_found'));
+        }
+        return ApiResponse::success(200, new CarResource($car));
     }
 }

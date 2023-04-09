@@ -14,6 +14,13 @@ class TypeSeeder extends Seeder
      */
     public function run()
     {
-        Type::factory()->count(5)->create();
+        Type::create([
+            'amount' => 2500,
+            'label' => 'VIP 1',
+        ]);
+        Type::create([
+            'amount' => 5000,
+            'label' => 'VIP 2',
+        ]);
     }
 }
