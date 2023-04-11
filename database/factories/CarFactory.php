@@ -18,7 +18,7 @@ class CarFactory extends Factory
             'gray_card' => $this->faker->macAddress(),
             'model' => $this->faker->domainName(),
             'registration_number' => $this->faker->creditCardNumber(),
-            'type_id' => rand(1, 5),
+            'type_id' => rand(1, 2),
             'user_id' => rand(1, 50),
         ];
     }

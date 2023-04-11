@@ -182,7 +182,7 @@
                                         </div>
                                         <div class="mt-2">
                                             <h6>{{__('labels.created_at')}}:</h6>
-                                            <p>{{date_format($car->created_at, 'M d, Y')}}</p>
+                                            <p>{{date_format($car->created_at, 'M d, Y H:i')}}</p>
                                         </div>
                                         @if(auth()->user()->roles->pluck('name')[0] == 'super_admin')
                                             <div class="mt-2">
@@ -279,7 +279,7 @@
                                     </div>
                                     <div class="mt-2">
                                         <h6>{{__('labels.created_at')}}:</h6>
-                                        <p>{{date_format($car->type->created_at, 'M d, Y')}}</p>
+                                        <p>{{date_format($car->type->created_at, 'M d, Y H:i')}}</p>
                                     </div>
                                 </div>
                             </div>

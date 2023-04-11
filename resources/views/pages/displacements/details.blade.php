@@ -100,6 +100,11 @@
                                 @include('pages.displacements._status', $trip)
                             </div>
                         </div>
+                        <div class="mt-2">
+                            <div class="h6">{{__('labels.created_at')}}:
+                                <a href="javascript:void(0);">{{date_format($trip->created_at, 'M d, Y H:i')}}</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

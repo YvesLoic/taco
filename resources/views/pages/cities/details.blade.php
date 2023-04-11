@@ -38,11 +38,11 @@
                                 <div class="iq-card-body">
                                     <div class="mt-2">
                                         <h6>{{__('labels.city.attr.country')}}:</h6>
-                                        <p>{{$city->country}}</p>
+                                        <p>{{$city->country->name}}</p>
                                     </div>
                                     <div class="mt-2">
                                         <h6>{{__('labels.city.attr.city')}}:</h6>
-                                        <p>{{$city->city}}</p>
+                                        <p>{{$city->name}}</p>
                                     </div>
                                     <div class="mt-2">
                                         <h6>{{__('labels.created_at')}}:</h6>
@@ -77,7 +77,7 @@
                                                             : {{$user->last_name}}</p>
                                                         <p class="card-text">
                                                             <small class="text-muted">{{__('labels.created_at')}}
-                                                                : {{date_format($user->created_at, 'M d, Y')}}</small>
+                                                                : {{date_format($user->created_at, 'M d, Y H:i')}}</small>
                                                         </p>
                                                     </div>
                                                 </div>

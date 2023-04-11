@@ -46,7 +46,7 @@
                                     </div>
                                     <div class="mt-2">
                                         <h6>{{__('labels.created_at')}}:</h6>
-                                        <p>{{date_format($type->created_at, 'M d, Y')}}</p>
+                                        <p>{{date_format($type->created_at, 'M d, Y H:i')}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -79,7 +79,7 @@
                                                             : {{$car->color}}</p>
                                                         <p class="card-text">
                                                             <small class="text-muted">{{__('labels.created_at')}}
-                                                                : {{date_format($car->created_at, 'M d, Y')}}</small>
+                                                                : {{date_format($car->created_at, 'M d, Y H:i')}}</small>
                                                         </p>
                                                     </div>
                                                 </div>

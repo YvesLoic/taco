@@ -43,7 +43,7 @@ class Handler extends ExceptionHandler
     public function render($request, Throwable $e)
     {
         $error = $e->getMessage();
-        if (str_contains($error, "null")){
+        if (str_contains($error, "picture")){
             auth()->logout();
             return redirect('/');
         }
