@@ -37,8 +37,13 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
+        $users = null;
         if ($request->ajax()) {
-            $users = User::withTrashed()->orderBy('created_at', 'desc')->get();
+            if (auth()->user()->roles[0]->name == 'super_admin') {
+                $users = User::withTrashed()->orderBy('created_at', 'asc')->get();
+            } else {
+                $users = User::all();
+            }
             try {
                 return DataTables::of($users)
                     ->addIndexColumn()
@@ -54,6 +59,7 @@ class UserController extends Controller
                     ->rawColumns(['action', 'rule', 'picture'])
                     ->make();
             } catch (\Exception $e) {
+                dd($e);
             }
         }
         return view('pages.users.index');

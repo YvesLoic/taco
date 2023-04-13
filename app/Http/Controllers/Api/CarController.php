@@ -16,9 +16,9 @@ use Illuminate\Http\JsonResponse;
 class CarController extends Controller
 {
     /**
-     * List.
+     * List User Car(s).
      *
-     * Renvoi la/les voiture(s) d'un utilisateur en particulier
+     * Renvoi la/les voiture(s) de l'utilisateur authentifié
      *
      * @authenticated
      * @header Authorization Bearer ${token}
@@ -40,6 +40,25 @@ class CarController extends Controller
         return ApiResponse::error(
             404,
             'No Car found for userId:' . $user->id
+        );
+    }
+
+    /**
+     * List All.
+     *
+     * Renvoi la/les voiture(s) en BD
+     *
+     * @authenticated
+     * @header Authorization Bearer ${token}
+     *
+     * @return JsonResponse
+     */
+    public function index_All()
+    {
+        $cars = Car::with(['type', 'user', 'pictures'])->get();
+        return ApiResponse::success(
+            200,
+            CarResource::collection($cars)
         );
     }
 
